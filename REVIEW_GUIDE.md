@@ -61,7 +61,7 @@ Suggested review order / 建议评审顺序: read each project's PDF report firs
 ### 2.1 Project 01: drawings (Rev P2)
 | What | Where | Note |
 |---|---|---|
-| IEC 60617-style symbol library: CB, withdrawable CB, disconnector, switch-disconnector, fuse, earthing switch, CT, VT, surge arrester, transformer, earthing, genset, UPS compound, SBS, battery, Petersen coil, BTS, meter, relay box, arc sensor, interlock, control line, off-page arrow; A3 frame and stepped title block (130 mm upper tier, 180 mm lower tier); `monochrome()` export pass (pure black on white, voltage level by line weight, hollow UPS busbar) | `01-design-basis-sld/scripts/sld_lib.py` | 1 mm = 1 drawing unit at A3; fonts set by cap height (DejaVu Sans cap = 0.729 em): 10 pt = 2.57 mm, 14 pt = 3.6 mm, 20 pt = 5.14 mm |
+| IEC 60617-style symbol library: CB, withdrawable CB, disconnector, switch-disconnector, fuse, earthing switch, CT, VT, surge arrester, transformer, earthing, genset, UPS compound, SBS, battery, Petersen coil, BTS, meter, relay box, arc sensor, interlock, control line, off-page arrow; A3 frame and uniform 180 mm title block (drawing number 14 pt, all other title-block text 10 pt); `monochrome()` export pass (pure black on white, voltage level by line weight, hollow UPS busbar) | `01-design-basis-sld/scripts/sld_lib.py` | 1 mm = 1 drawing unit at A3; fonts set by cap height (DejaVu Sans cap = 0.729 em): 10 pt = 2.57 mm, 14 pt = 3.6 mm (tags and drawing number) |
 | Sheet generators | `scripts/sld000_legend.py`, `sld001_sh1_substation.py`, `sld001_sh2_msg20.py`, `sld002_sh1_hall_mv.py`, `sld002_sh2_whitespace.py`, `sld003_sh1_block_mvlv.py`, `sld003_sh2_block_ups.py`, `sld004_bess.py`; list in `sheets.py` | A3 landscape, SVG/PDF/PNG |
 | Drawing checker | `scripts/check_drawings.py` | Parses each SVG. Checks: cap height of every text ≥ 2.5 mm; text/text overlap with 0.8 mm clearance; text/line crossings (Liang–Barsky clipping); text inside the sheet. Writes `drawings/text_height_check.json`; non-zero exit on failure |
 | Build | `scripts/build_all.py` | sheets → pdfunite set → checker → markdown → HTML → Chrome PDF (DB-001 with all 8 sheets in Appendix A) |
@@ -185,7 +185,7 @@ The assumptions that drive the results most / 对结果影响最大的假设:
 
 The full list, with a status for every row, is in `TODO_final_fixes.md`. 完整清单及每项状态见该文件。
 * **A. Drawings / 图纸: DONE / 已完成.**
-  * A1: 8 sheets were measured. Minimum cap height 2.57 mm, tags 3.6 mm, drawing number 5.14 mm, 0 overlaps.
+  * A1: 8 sheets were measured. Minimum cap height 2.57 mm, tags 3.6 mm, drawing number 3.6 mm, 0 overlaps.
   * A2: IEC 60617 symbols are drawn: CT, VT, SA, ES, relays, meters, Petersen coil, arc sensors, interlocks.
   * A3: re-exported, with set PDF `DWU-DC-E-SLD_concept_set_RevP2_A3.pdf`.
   * Not done: a physical A3 print test, and IEC 60617 item numbers on the legend.

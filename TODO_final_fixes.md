@@ -10,7 +10,7 @@ Collected 2026-10-24. Fixes applied 2026-10-25. Verification: `01-design-basis-s
 > * The checker measured all 1 199 texts:
 >   * Minimum cap height is **2.57 mm** (10 pt) on every sheet.
 >   * Equipment and busbar tags are 3.6 mm (14 pt).
->   * The drawing number is 5.14 mm (20 pt).
+>   * The drawing number is 3.6 mm (14 pt), reduced so the title block is one uniform 180 mm rectangle.
 >   * There are 0 text/text and text/line overlaps, and no text off the sheet.
 > * Symbols: CT, VT, SA, ES, relay numbers, Wh/EPMS meters, Petersen coil, arc sensors and interlocks are drawn and listed in the legend.
 > * Set PDF: `drawings/DWU-DC-E-SLD_concept_set_RevP2_A3.pdf`.

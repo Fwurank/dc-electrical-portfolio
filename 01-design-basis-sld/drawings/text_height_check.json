@@ -4,9 +4,9 @@
   "SLD-000_legend_notes": {
    "n_text": 127,
    "min_cap_mm": 2.57,
-   "max_cap_mm": 5.14,
+   "max_cap_mm": 3.6,
    "min_em_mm": 3.53,
-   "dwg_no_cap_mm": 5.14,
+   "dwg_no_cap_mm": 3.6,
    "below_2p5": [],
    "layout_issues": [],
    "ok": true
@@ -14,9 +14,9 @@
   "SLD-001-1_130kV_substation": {
    "n_text": 130,
    "min_cap_mm": 2.57,
-   "max_cap_mm": 5.14,
+   "max_cap_mm": 3.6,
    "min_em_mm": 3.53,
-   "dwg_no_cap_mm": 5.14,
+   "dwg_no_cap_mm": 3.6,
    "below_2p5": [],
    "layout_issues": [],
    "ok": true
@@ -24,9 +24,9 @@
   "SLD-001-2_MSG-20_switchgear": {
    "n_text": 179,
    "min_cap_mm": 2.57,
-   "max_cap_mm": 5.14,
+   "max_cap_mm": 3.6,
    "min_em_mm": 3.53,
-   "dwg_no_cap_mm": 5.14,
+   "dwg_no_cap_mm": 3.6,
    "below_2p5": [],
    "layout_issues": [],
    "ok": true
@@ -34,9 +34,9 @@
   "SLD-002-1_DH1_MV_and_blocks": {
    "n_text": 185,
    "min_cap_mm": 2.57,
-   "max_cap_mm": 5.14,
+   "max_cap_mm": 3.6,
    "min_em_mm": 3.53,
-   "dwg_no_cap_mm": 5.14,
+   "dwg_no_cap_mm": 3.6,
    "below_2p5": [],
    "layout_issues": [],
    "ok": true
@@ -44,9 +44,9 @@
   "SLD-002-2_DH1_whitespace_mech": {
    "n_text": 161,
    "min_cap_mm": 2.57,
-   "max_cap_mm": 5.14,
+   "max_cap_mm": 3.6,
    "min_em_mm": 3.53,
-   "dwg_no_cap_mm": 5.14,
+   "dwg_no_cap_mm": 3.6,
    "below_2p5": [],
    "layout_issues": [],
    "ok": true
@@ -54,9 +54,9 @@
   "SLD-003-1_block_A_MV_LV": {
    "n_text": 150,
    "min_cap_mm": 2.57,
-   "max_cap_mm": 5.14,
+   "max_cap_mm": 3.6,
    "min_em_mm": 3.53,
-   "dwg_no_cap_mm": 5.14,
+   "dwg_no_cap_mm": 3.6,
    "below_2p5": [],
    "layout_issues": [],
    "ok": true
@@ -64,9 +64,9 @@
   "SLD-003-2_block_A_UPS_critical": {
    "n_text": 132,
    "min_cap_mm": 2.57,
-   "max_cap_mm": 5.14,
+   "max_cap_mm": 3.6,
    "min_em_mm": 3.53,
-   "dwg_no_cap_mm": 5.14,
+   "dwg_no_cap_mm": 3.6,
    "below_2p5": [],
    "layout_issues": [],
    "ok": true
@@ -74,9 +74,9 @@
   "SLD-004_BESS_plant": {
    "n_text": 139,
    "min_cap_mm": 2.57,
-   "max_cap_mm": 5.14,
+   "max_cap_mm": 3.6,
    "min_em_mm": 3.53,
-   "dwg_no_cap_mm": 5.14,
+   "dwg_no_cap_mm": 3.6,
    "below_2p5": [],
    "layout_issues": [],
    "ok": true

@@ -14,6 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import sld_lib
 from sheets import SHEETS
+DWG_MIN = 3.5   # drawing number cap height, mm: ISO 3098 standard height 3.5 (title block is one uniform 180 mm rectangle)
 DWG = os.path.join(os.path.dirname(HERE), "drawings")
 
 
@@ -125,7 +126,7 @@ def main():
         small = [(round(c, 2), s) for c, _, s in h if c < 2.5 - 1e-9]
         dn = [c for c, _, s in h if s.startswith("DWU-DC-E-SLD")]
         iss = captured[stem]
-        ok = not small and not iss and (dn and min(dn) >= 5.0)
+        ok = not small and not iss and (dn and min(dn) >= DWG_MIN)
         ok_all &= bool(ok)
         report["sheets"][stem] = {"n_text": len(h), "min_cap_mm": round(min(caps), 2), "max_cap_mm": round(max(caps), 2),
                                   "min_em_mm": round(min(e for _, e, _ in h), 2),

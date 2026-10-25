@@ -4,7 +4,7 @@ Units: 1 drawing unit = 1 mm on an A3 landscape sheet (420 x 297 mm). The axes f
 so a font size in pt maps 1:1 to printed size at A3.
 Lettering (ISO 3098): the minimum font is FS_MIN = 10 pt. DejaVu Sans cap height is 0.729 em, so the
 capital height is 10 x 0.3528 x 0.729 = 2.57 mm, which is >= 2.5 mm.
-Busbar/equipment tags use FS_TAG = 14 pt (3.6 mm), and the drawing number uses FS_DWG = 20 pt (5.1 mm).
+Busbar/equipment tags use FS_TAG = 14 pt (3.6 mm), and the drawing number uses FS_DWG = 14 pt (3.6 mm).
 scripts/check_drawings.py verifies these values on the exported SVG files.
 """
 import os
@@ -21,7 +21,7 @@ CAP = 0.729                      # DejaVu Sans cap height / em
 FS_MIN = 10.0                    # -> 2.57 mm caps
 FS_TAG = 14.0                    # -> 3.60 mm caps (busbar / equipment tags)
 FS_TITLE = 16.0
-FS_DWG = 20.0                    # -> 5.14 mm caps (drawing number)
+FS_DWG = 14.0                    # -> 3.60 mm caps (drawing number, title block)
 LW, BUS_LW, THIN = 0.8, 3.0, 0.5
 # Output is pure black (see monochrome()); the other values are only voltage-level tokens.
 INK, HV_C, MV_C, LV_C, UPS_C, GEN_C, CTL_C = "#000000", "#7a1f1f", "#1f3b73", "#111111", "#0b6e4f", "#8a5a00", "#5a2a82"  # noqa: tokens
@@ -368,36 +368,34 @@ def frame_and_title(ax, dwg_no, title, subtitle, sheet, sheets, revs=None):
     for j, L in enumerate("FEDCBA"):
         ym = 10 + (j + 0.5) * 277 / 6
         text(ax, 15, ym, L, ha="center"); text(ax, 414.5, ym, L, ha="center")
-    # Stepped title block, anchored in the bottom-right corner of the frame (Rev P2 monochrome issue):
-    #   lower tier, full width 180 mm: drawing no. / sheet / rev row + title, subtitle, status lines;
-    #   upper tier, narrow 130 mm, right-aligned: project lines + revision table.
-    # Every title-block text is FS_MIN (10 pt, 2.57 mm caps) except the drawing number (FS_DWG).
+    # Title block: ONE uniform 180 mm wide rectangle anchored in the bottom-right corner of the frame.
+    # Rows bottom -> top, all full width: Drawing no. / Sheet / Rev; title, subtitle, status;
+    # project lines; revision table. Every text is FS_MIN (10 pt, 2.57 mm caps) except the drawing
+    # number (FS_DWG = 14 pt, 3.6 mm caps).
     x0, y0, w = 230, 10, 180
-    wn = 130; xn = x0 + w - wn
-    box(ax, x0, y0, w, 30, lw=1.2, fill="white", z=1)                 # lower tier, full width
-    line(ax, [(x0, y0 + 14), (x0 + w, y0 + 14)], lw=THIN)
-    line(ax, [(x0 + 118, y0), (x0 + 118, y0 + 14)], lw=THIN)
-    line(ax, [(x0 + 148, y0), (x0 + 148, y0 + 14)], lw=THIN)
-    text(ax, x0 + 2, y0 + 11.0, "Drawing no.")
-    text(ax, x0 + 2, y0 + 4.6, dwg_no, fs=FS_DWG, weight="bold")
-    text(ax, x0 + 120, y0 + 11.0, "Sheet"); text(ax, x0 + 120, y0 + 5.0, f"{sheet} / {sheets}", weight="bold")
-    text(ax, x0 + 150, y0 + 11.0, "Rev"); text(ax, x0 + 150, y0 + 5.0, REV, weight="bold")
-    text(ax, x0 + 2, y0 + 26.0, title, weight="bold")
-    text(ax, x0 + 2, y0 + 21.4, subtitle)
-    text(ax, x0 + 2, y0 + 16.8, "CONCEPT · NOT FOR CONSTRUCTION · scale NTS · A3")
-    yt = y0 + 30                                                       # upper tier, narrow, right-aligned
-    box(ax, xn, yt, wn, 11, lw=1.2, fill="white", z=1)
-    text(ax, xn + 2, yt + 7.9, "Nordic Hyperscale DC Campus (fictional) · 30 MW IT · SE3", weight="bold")
-    text(ax, xn + 2, yt + 3.1, "Portfolio D. Wu · public standards and [ASSUMED] data only")
+    line(ax, [(x0 + 118, y0), (x0 + 118, y0 + 12)], lw=THIN)
+    line(ax, [(x0 + 148, y0), (x0 + 148, y0 + 12)], lw=THIN)
+    text(ax, x0 + 2, y0 + 9.0, "Drawing no.")
+    text(ax, x0 + 2, y0 + 3.8, dwg_no, fs=FS_DWG, weight="bold")
+    text(ax, x0 + 120, y0 + 9.0, "Sheet"); text(ax, x0 + 120, y0 + 3.8, f"{sheet} / {sheets}", weight="bold")
+    text(ax, x0 + 150, y0 + 9.0, "Rev"); text(ax, x0 + 150, y0 + 3.8, REV, weight="bold")
+    for yy in (12, 27, 38):
+        line(ax, [(x0, y0 + yy), (x0 + w, y0 + yy)], lw=THIN, z=1.5)
+    text(ax, x0 + 2, y0 + 23.6, title, weight="bold")
+    text(ax, x0 + 2, y0 + 19.0, subtitle)
+    text(ax, x0 + 2, y0 + 14.4, "CONCEPT · NOT FOR CONSTRUCTION · scale NTS · A3")
+    text(ax, x0 + 2, y0 + 34.8, "Nordic Hyperscale DC Campus (fictional) · 30 MW IT · SE3", weight="bold")
+    text(ax, x0 + 2, y0 + 30.2, "Portfolio D. Wu · public standards and [ASSUMED] data only")
     revs = revs or [("P1", "2026-10-24", "First concept issue"), (REV, DATE, "CALC-002/3/4 ratings, IEC symbols, ≥2.5 mm text")]
-    yr = yt + 11
-    for rv, d, desc in revs:
-        box(ax, xn, yr, wn, LINE_H + 1, lw=THIN, fill="white")
-        text(ax, xn + 2, yr + (LINE_H + 1) / 2, rv, weight="bold")
-        text(ax, xn + 11, yr + (LINE_H + 1) / 2, d)
-        text(ax, xn + 35, yr + (LINE_H + 1) / 2, desc)
+    yr = y0 + 38
+    for i, (rv, d, desc) in enumerate(revs):
+        if i:
+            line(ax, [(x0, yr), (x0 + w, yr)], lw=THIN, z=1.5)
+        text(ax, x0 + 2, yr + (LINE_H + 1) / 2, rv, weight="bold")
+        text(ax, x0 + 13, yr + (LINE_H + 1) / 2, d)
+        text(ax, x0 + 37, yr + (LINE_H + 1) / 2, desc)
         yr += LINE_H + 1
-    box(ax, xn, yt, wn, yr - yt, lw=1.2, z=1.5)                         # heavy outline of the narrow tier
+    box(ax, x0, y0, w, yr - y0, lw=1.2, fill="white", z=1)              # single uniform outline
     return yr   # top of the revision block
 
 
