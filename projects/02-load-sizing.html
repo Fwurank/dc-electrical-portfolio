@@ -5,17 +5,13 @@
 <header class="top"><div class="wrap"><a class="brand" href="../index.html">Donglin (Franklin) Wu <span>· Data center electrical portfolio</span></a><nav><a href="../index.html#projects">Projects</a><a href="../index.html#assumptions">Assumptions</a><a href="../index.html#about">About</a><a href="https://github.com/Fwurank/dc-electrical-portfolio">GitHub</a></nav></div></header>
 <div class="page-head"><div class="wrap"><p class="crumb"><a href="../index.html">Portfolio</a> / Project 02</p>
 <h1>02 · Load & equipment sizing tool</h1><p><code>dcsizing</code> is a Python package and Streamlit app. It works from IT load to facility load, then sizes every power-train element in normal and failure modes and compares the result with the phase-1 ratings.</p></div></div>
-<section><div class="wrap"><div class="cols">
+<section><div class="wrap">
 <div class="box"><h3>Key findings</h3><ul class="findings"><li>Campus design peak is 37.8 MW at +32 °C. Adding the non-coincident UPS recharge gives 42.6 MW, which is above the 40 MW subscription. That result drives the recharge rule and project 04.</li><li>Block transformer 2 500 kVA at 82 % in N-1, IT genset 2 750 kVA at 88 %, MSB I″k 53.8 kA at the transformer terminals (IEC 60909 with K<sub>T</sub>).</li><li>The battery per 1 000 kW UPS module is governed by C-rate, not autonomy: 120 kWh would run at 10.7 C at end of life, against 8 C max, so it goes to 165 kWh.</li><li>Annualised PUE is 1.165 at 75 % IT from climate bins. The ≤ 1.15 target needs a mechanical pPUE of ≲ 0.035 in free-cooling hours. 11 rating changes were raised; 46 tests, including 2 Streamlit AppTests.</li></ul></div>
-<div class="box"><h3>Downloads &amp; code</h3><ul><li><a href="../02-load-sizing/report/DWU-DC-E-CALC-002_Load_and_Sizing_Calc.pdf">Calculation report CALC-002 (PDF)</a></li><li><a href="https://github.com/Fwurank/dc-electrical-portfolio/tree/main/02-load-sizing">Source code &amp; tests on GitHub</a></li></ul>
-<h3 style="margin-top:14px">Run locally</h3><pre>git clone https://github.com/Fwurank/dc-electrical-portfolio.git
-cd dc-electrical-portfolio/02-load-sizing
-pip install -r requirements.txt
-streamlit run app.py              # http://localhost:8501
-python -m pytest -q</pre></div></div>
 <div class="note">This is a fictional case built from public standards and assumed parameters marked [ASSUMED] / (A). No employer, client or vendor data is used.</div>
 <h2 style="margin-top:10px">Figures</h2><p class="sub">Reduced previews. The full-resolution originals are in the repository.</p><figure><img src="../assets/img/p02_app.jpg" alt="Streamlit app, summary tab" loading="lazy"><figcaption>Streamlit app, summary tab</figcaption></figure>
-<p class="crumb">Other projects: <a href="01-design-basis.html">01 Design basis & single-line diagrams</a> · <a href="03-shortcircuit-protection.html">03 Short-circuit, protection & arc-flash study</a> · <a href="04-bess.html">04 BESS in a grid-constrained data center</a></p></div></section>
+<p class="crumb">Other projects: <a href="01-design-basis.html">01 Design basis & single-line diagrams</a> · <a href="03-shortcircuit-protection.html">03 Short-circuit, protection & arc-flash study</a> · <a href="04-bess.html">04 BESS in a grid-constrained data center</a></p>
+<div class="downloads"><h3>Downloads &amp; code</h3><ul><li><a href="../02-load-sizing/report/DWU-DC-E-CALC-002_Load_and_Sizing_Calc.pdf">Calculation report CALC-002 (PDF)</a></li><li><a href="https://github.com/Fwurank/dc-electrical-portfolio/tree/main/02-load-sizing">Source code &amp; tests on GitHub</a></li></ul></div>
+</div></section>
 <footer><div class="wrap">© 2026 Donglin (Franklin) Wu. Documents, drawings and figures © D. Wu, all rights reserved; code under the MIT License.
 Fictional case study built from public standards and assumed parameters, not employer, client or vendor data. Not for construction or investment decisions.
 · <a href="https://www.linkedin.com/in/donglinwu1998">LinkedIn</a> · <a href="https://github.com/Fwurank/dc-electrical-portfolio">Source on GitHub</a></div></footer>
