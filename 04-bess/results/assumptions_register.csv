@@ -1,0 +1,55 @@
+group,name,value,tag,note,source
+Site,grid_limit_mw,40.0,PROJECT,Subscribed import capacity (abonnerad effekt),"DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
+Site,it_nameplate_mw,30.0,PROJECT,"IT nameplate, 6 halls × 5 MW","DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
+Site,design_peak_mw,37.818,PROJECT,"Campus demand at 100 % IT, +32 °C (dcsizing)","DWU-DC-E-CALC-002 (project 02, dcsizing): design peak 37.8 MW, 42.6 MW incl. UPS recharge"
+Site,recharge_mw,4.8,PROJECT,UPS battery recharge allowance 10 % of 48 MW UPS (non-coincident),"DWU-DC-E-CALC-002 (project 02, dcsizing): design peak 37.8 MW, 42.6 MW incl. UPS recharge"
+Site,recharge_h,1.5,ASSUMED,"Recharge at full rate after a full discharge, then 1 h taper",
+Site,u_mean,0.8,ASSUMED,"Design-year mean IT utilisation (AI-heavy, > DB 75 %)",
+Site,u_diurnal,0.06,ASSUMED,Diurnal utilisation amplitude (peak 14–20 h),
+Site,u_noise,0.02,ASSUMED,Hourly AR(1) utilisation noise σ,
+Site,heatwave_c,32.0,PROJECT,"Extreme design ambient (heat-wave peak, 5 days in July)","DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
+Site,seed,2026,ASSUMED,Random seed of all synthetic profiles,
+Bess,p_mw,10.0,PROJECT,"PCS power at the 20 kV bay(s), 2 × 5 MW (one per MSG-20 section)","DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
+Bess,e_mwh,20.0,PROJECT,Nameplate energy at BoL (2 h); usable = SOC window × nameplate,"DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
+Bess,soc_min,0.05,ASSUMED,Usable SOC window lower bound (of nameplate),
+Bess,soc_max,0.95,ASSUMED,Usable SOC window upper bound,
+Bess,eta_rt,0.88,ASSUMED,AC round-trip efficiency incl. PCS + MV transformer (LFP),
+Bess,availability,0.97,ASSUMED,Commercial availability,
+Bess,cal_fade,0.01,ASSUMED,"Calendar fade per year (LFP, ~25 °C)",
+Bess,cycle_life,6000.0,ASSUMED,Equivalent full cycles to 80 % SOH,
+Bess,deg_cost_eur_mwh,15.0,ASSUMED,Throughput degradation cost (DC block cost / cycle life),
+Bess,response_ms,150.0,ASSUMED,PCS full-power step response (grid-following); 20–50 ms grid-forming,
+Bess,fault_pu,1.2,ASSUMED,PCS fault-current limit (per unit of rated current),
+Bess,s_mva,11.0,ASSUMED,PCS apparent power (Q for p.f. ≥ 0.95 at the connection point),
+Prices,scenario,2026,PUBLIC,"Price year: '2025', '2026' (Jan–Aug) or 'saturated' (0.5 × 2026, ASSUMED)","Flexnavet wiki, 'Nordic battery revenue trends 2023–2026' — annual means of Svk Mimer reserve prices (2026 = Jan–Aug); secondary source"
+Prices,spot_mean,46.23,PUBLIC,"SE3 day-ahead annual mean 2025, EUR/MWh (synthetic hourly shape around it)","Nord Pool, day-ahead prices, yearly aggregate SE3 (2025 = 46.23 EUR/MWh; 2026 YTD = 70.70 EUR/MWh)"
+Prices,spot_daily_spread,0.25,ASSUMED,Synthetic diurnal price amplitude (fraction of mean),
+Prices,neg_share,0.04,ASSUMED,Share of hours ≤ 0 EUR/MWh (≈ 3.9 % SE3 2025 per worldpowermonitor),
+Prices,grid_energy_fee,1.5,PUBLIC,Regional-grid transfer fee ≈ 1.7 öre/kWh (L1 Södra) → ≈ 1.5 EUR/MWh,"Vattenfall Eldistribution, Prisblad regionnät 2026 (Södra Sverige, tariff L1: årseffektavgift 207 SEK/kW, högbelastningsavgift 35 SEK/kW, överföring 1.7 öre/kWh)"
+Prices,sek_per_eur,11.0,ASSUMED,Exchange rate SEK/EUR,
+Prices,usd_per_eur,1.13,ASSUMED,Exchange rate USD/EUR,
+Prices,subscription_sek_kw,242.0,PUBLIC,Årseffektavgift 207 + högbelastning 35 SEK/kW·yr (L1 Södra 2026),"Vattenfall Eldistribution, Prisblad regionnät 2026 (Södra Sverige, tariff L1: årseffektavgift 207 SEK/kW, högbelastningsavgift 35 SEK/kW, överföring 1.7 öre/kWh)"
+Prices,realisation,0.85,ASSUMED,"Perfect-foresight LP → real bidding (forecast error, bid granularity, aggregator fee)",
+Prices,fcrn_act_share,0.1,ASSUMED,FCR-N mean activation (|ΔP|/reserved) → throughput losses,
+Finance,c_energy_eur_kwh,120.0,ASSUMED,Energy-related turnkey cost; with c_power gives 157 €/kWh at 2 h ≈ BNEF Europe 2025 177 USD/kWh,"BNEF Energy Storage System Cost Survey 2025 as reported by Energy-Storage.News 2025-12-16 (turnkey Europe 177 USD/kWh, global 117 USD/kWh)"
+Finance,c_power_eur_kw,75.0,ASSUMED,"Power-related turnkey cost (PCS, MV skid)",
+Finance,bop_frac,0.2,ASSUMED,"Grid connection, civil, fire protection, owner's costs (fraction of turnkey)",
+Finance,bay_eur,300000.0,ASSUMED,Two 20 kV bay fit-outs incl. protection & metering (bays reserved in DB),
+Finance,opex_frac,0.02,ASSUMED,"O&M + insurance + EMS/optimiser fee, fraction of CAPEX per year",
+Finance,wacc,0.07,ASSUMED,Nominal WACC,
+Finance,life_y,15,ASSUMED,Economic life (years),
+Finance,price_trend,-0.03,ASSUMED,Annual ancillary-price trend (saturation; SVK-BMO-2030 shows decreasing prices),
+Finance,soh_floor,0.8,ASSUMED,Augment energy whenever SOH would fall below this,
+Finance,aug_cost_trend,-0.04,ASSUMED,Annual change of cell/augmentation cost,
+Finance,it_value_keur_mw,0.0,ASSUMED,"Value of enabled IT capacity, k€/MW-IT·yr (0 = conservative base case)",
+AiSwing,p_ai_mw,12.0,ASSUMED,"AI training cluster at the grid (IT × PUE), synchronous job, ≈ 2 halls",
+AiSwing,p_base_mw,24.0,ASSUMED,Rest of campus (steady),
+AiSwing,duty_low,0.35,ASSUMED,Communication-phase power (pu of AI peak),
+AiSwing,period_s,6.0,ASSUMED,Training-iteration period (compute + all-reduce),
+AiSwing,ckpt_every_s,900.0,ASSUMED,Checkpoint interval,
+AiSwing,ckpt_len_s,45.0,ASSUMED,Checkpoint duration at ~20 % power,
+AiSwing,ramp_mw_min,3.0,ASSUMED,Grid-code-style ramp limit at the connection point (10 % of 30 MW per minute),
+AiSwing,osc_band_mw,1.0,ASSUMED,Max. residual peak-to-peak swing in 0.1–2 Hz band (≈ 2.5 % of 40 MW; forced-oscillation limit),
+AiSwing,rise_s,0.5,ASSUMED,"Facility-level 10–90 % rise time of AI power steps (many GPUs, PSU/UPS DC links)",
+AiSwing,dt_s,0.02,ASSUMED,Simulation step,
+AiSwing,horizon_s,3600.0,ASSUMED,"Simulated window (job start, checkpoints, a crash/restart)",

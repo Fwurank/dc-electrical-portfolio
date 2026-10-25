@@ -1,0 +1,687 @@
+{
+ "settings_mv": [
+  {
+   "Device": "R-INC 20 kV incomer (T1 LV)",
+   "kV": 20,
+   "CT": "2500/1",
+   "51 Is (A)": 2100,
+   "Is/In(CT)": 0.84,
+   "Curve": "IEC SI",
+   "TMS": 0.16,
+   "50 I>> (A)": 6000,
+   "t>> (s)": 0.65
+  },
+  {
+   "Device": "R-FDR hall feeder (MSG-20)",
+   "kV": 20,
+   "CT": "400/1",
+   "51 Is (A)": 320,
+   "Is/In(CT)": 0.8,
+   "Curve": "IEC VI",
+   "TMS": 0.84,
+   "50 I>> (A)": 2400,
+   "t>> (s)": 0.35
+  },
+  {
+   "Device": "R-TX block transformer (HV-DH1)",
+   "kV": 20,
+   "CT": "150/1",
+   "51 Is (A)": 100,
+   "Is/In(CT)": 0.67,
+   "Curve": "IEC EI",
+   "TMS": 1.0,
+   "50 I>> (A)": 1500,
+   "t>> (s)": 0.05
+  }
+ ],
+ "settings_lv": [
+  {
+   "Device": "MSB-A incomer ACB 4000 A",
+   "Frame (A)": 4000,
+   "Ir (A)": 3600,
+   "tr@6Ir (s)": 3,
+   "Isd (A)": 14400,
+   "tsd (s)": 0.3,
+   "Ii (A)": "OFF",
+   "Icu/Icw (kA)": "65/65"
+  },
+  {
+   "Device": "MSB→SBS/bypass ACB 3200 A",
+   "Frame (A)": 3200,
+   "Ir (A)": 2900,
+   "tr@6Ir (s)": 1,
+   "Isd (A)": 7250,
+   "tsd (s)": 0.2,
+   "Ii (A)": "OFF",
+   "Icu/Icw (kA)": "65/65"
+  },
+  {
+   "Device": "Busway feeder MCCB 800 A (current-limiting)",
+   "Frame (A)": 800,
+   "Ir (A)": 800,
+   "tr@6Ir (s)": 6,
+   "Isd (A)": 3200,
+   "tsd (s)": 0.1,
+   "Ii (A)": 9600,
+   "Icu/Icw (kA)": "70/0"
+  },
+  {
+   "Device": "Genset ACB 4000 A",
+   "Frame (A)": 4000,
+   "Ir (A)": 4000,
+   "tr@6Ir (s)": 12,
+   "Isd (A)": 10000,
+   "tsd (s)": 0.4,
+   "Ii (A)": "OFF",
+   "Icu/Icw (kA)": "65/65"
+  }
+ ],
+ "margins_mv": {
+  "R-TX vs MSB incomer": {
+   "min_margin_s": 0.31862819767485706,
+   "at_a": 52304.69779067167
+  },
+  "R-FDR vs R-TX": {
+   "min_margin_s": 0.3,
+   "at_a": 2433.1653041513623
+  },
+  "R-INC vs R-FDR": {
+   "min_margin_s": 0.30000000000000004,
+   "at_a": 6027.4985032893655
+  }
+ },
+ "lv_selectivity": [
+  {
+   "downstream": "Rack-group 63 A (tap-off), C-curve",
+   "upstream": "Busway feeder MCCB 800 A (current-limiting)",
+   "ik_max_ka": 25.089719991481832,
+   "min_margin_s": -0.005,
+   "at_ka": 8.735758789164189,
+   "selective": false,
+   "current_limit_ka": 8.64
+  },
+  {
+   "downstream": "Busway feeder MCCB 800 A (current-limiting)",
+   "upstream": "MSB→SBS/bypass ACB 3200 A",
+   "ik_max_ka": 37.147242385535684,
+   "min_margin_s": 0.05000000000000002,
+   "at_ka": 6.6206823614302035,
+   "selective": true,
+   "current_limit_ka": null
+  },
+  {
+   "downstream": "MSB→SBS/bypass ACB 3200 A",
+   "upstream": "MSB-A incomer ACB 4000 A",
+   "ik_max_ka": 49.25632958646888,
+   "min_margin_s": 0.02999999999999997,
+   "at_ka": 13.310786733192398,
+   "selective": true,
+   "current_limit_ka": null
+  }
+ ],
+ "genset": {
+  "ir_gen_a": 3969.2831006786773,
+  "sustained_ka": 11.907849302036032,
+  "rows": [
+   {
+    "device": "Genset ACB 4000 A",
+    "fault_at": "MSB-A (400 V)",
+    "ik_initial_ka": 24.749627729958803,
+    "i_at_trip_ka": 11.645265146268489,
+    "pickup_ka": 11.0,
+    "trips": true
+   },
+   {
+    "device": "MSB→SBS/bypass ACB 3200 A",
+    "fault_at": "UOSB-A on bypass (400 V)",
+    "ik_initial_ka": 23.89597596320002,
+    "i_at_trip_ka": 12.141290174809221,
+    "pickup_ka": 7.9750000000000005,
+    "trips": true
+   },
+   {
+    "device": "Busway feeder MCCB 800 A (current-limiting)",
+    "fault_at": "Busway A1 end, 60 m (400 V)",
+    "ik_initial_ka": 15.296710537614082,
+    "i_at_trip_ka": 13.767039483852676,
+    "pickup_ka": 10.56,
+    "trips": true
+   },
+   {
+    "device": "Rack-group 63 A (tap-off), C-curve",
+    "fault_at": "Rack PDU inlet, 8 m 4G16 (400 V)",
+    "ik_initial_ka": 9.425344122154478,
+    "i_at_trip_ka": 6.073107988417662,
+    "pickup_ka": 0.63,
+    "trips": true
+   }
+  ]
+ },
+ "ups": {
+  "ik_inverter_ka": 5.773502691896257,
+  "limit_s": 0.1,
+  "mcb_inst_ok": true,
+  "mcb_clear_s": 0.01,
+  "bw_isd_ok": true,
+  "bw_clear_s": 0.13
+ },
+ "ct": [
+  {
+   "CT": "CT R-INC",
+   "Ratio": "2500/1",
+   "Class": "5P20 15 VA",
+   "Rct+Rb (Ω)": 8.33,
+   "ALF'": 55.2,
+   "Ik max (kA)": 12.96,
+   "ALF' needed": 5.2,
+   "Ith CT 1s (kA)": 250.0,
+   "OK": true,
+   "OK if T1//T2": true
+  },
+  {
+   "CT": "CT R-FDR",
+   "Ratio": "400/1",
+   "Class": "5P20 15 VA",
+   "Rct+Rb (Ω)": 2.33,
+   "ALF'": 145.9,
+   "Ik max (kA)": 12.96,
+   "ALF' needed": 32.4,
+   "Ith CT 1s (kA)": 40.0,
+   "OK": true,
+   "OK if T1//T2": true
+  },
+  {
+   "CT": "CT R-TX",
+   "Ratio": "150/1",
+   "Class": "5P20 10 VA",
+   "Rct+Rb (Ω)": 1.83,
+   "ALF'": 125.7,
+   "Ik max (kA)": 12.07,
+   "ALF' needed": 80.5,
+   "Ith CT 1s (kA)": 25.1,
+   "OK": true,
+   "OK if T1//T2": false
+  }
+ ],
+ "ratings": [
+  {
+   "item": "MSG-20 (24 kV)",
+   "rating": "Ik 25 kA / 3 s",
+   "rating_ka": 25,
+   "case": "S0 normal",
+   "value_ka": 12.957301576511194,
+   "util": 0.5182920630604477,
+   "ok": true,
+   "kind": "ik",
+   "note": ""
+  },
+  {
+   "item": "MSG-20 (24 kV)",
+   "rating": "Ip 62.5 kA",
+   "rating_ka": 62.5,
+   "case": "S0 normal",
+   "value_ka": 34.42433393493715,
+   "util": 0.5507893429589944,
+   "ok": true,
+   "kind": "ip",
+   "note": ""
+  },
+  {
+   "item": "MSG-20 (24 kV)",
+   "rating": "Ik 25 kA / 3 s",
+   "rating_ka": 25,
+   "case": "S1 T1//T2",
+   "value_ka": 22.249346876759994,
+   "util": 0.8899738750703997,
+   "ok": true,
+   "kind": "ik",
+   "note": ""
+  },
+  {
+   "item": "MSG-20 (24 kV)",
+   "rating": "Ip 62.5 kA",
+   "rating_ka": 62.5,
+   "case": "S1 T1//T2",
+   "value_ka": 58.478921570925706,
+   "util": 0.9356627451348113,
+   "ok": true,
+   "kind": "ip",
+   "note": ""
+  },
+  {
+   "item": "MSG-20 VCB asym. breaking",
+   "rating": "28.2 kA (τ 45 ms)",
+   "rating_ka": 28.181006086471893,
+   "case": "S1 T1//T2",
+   "value_ka": 26.884888949146735,
+   "util": 0.9540074214047543,
+   "ok": true,
+   "kind": "asym",
+   "note": "τ = 61 ms, DC 48 % at 45 ms"
+  },
+  {
+   "item": "HV-DH1 (24 kV)",
+   "rating": "Ik 25 kA",
+   "rating_ka": 25,
+   "case": "S0 normal",
+   "value_ka": 12.074082602929256,
+   "util": 0.4829633041171702,
+   "ok": true,
+   "kind": "ik",
+   "note": ""
+  },
+  {
+   "item": "MSB-A",
+   "rating": "Icw 65 kA / 1 s",
+   "rating_ka": 65,
+   "case": "S0 normal",
+   "value_ka": 52.30469779067167,
+   "util": 0.8046876583180257,
+   "ok": true,
+   "kind": "ik",
+   "note": ""
+  },
+  {
+   "item": "MSB-A",
+   "rating": "Icm 143 kA",
+   "rating_ka": 143,
+   "case": "S0 normal",
+   "value_ka": 121.5481584363509,
+   "util": 0.8499871219325238,
+   "ok": true,
+   "kind": "ip",
+   "note": ""
+  },
+  {
+   "item": "MSB-A",
+   "rating": "Icw 65 kA / 1 s",
+   "rating_ka": 65,
+   "case": "S3 LV closed transition",
+   "value_ka": 81.80991908408352,
+   "util": 1.2586141397551311,
+   "ok": false,
+   "kind": "ik",
+   "note": ""
+  },
+  {
+   "item": "MSB-A",
+   "rating": "Icm 143 kA",
+   "rating_ka": 143,
+   "case": "S3 LV closed transition",
+   "value_ka": 186.6241693337587,
+   "util": 1.3050641212150957,
+   "ok": false,
+   "kind": "ip",
+   "note": ""
+  },
+  {
+   "item": "UOSB-A (bypass)",
+   "rating": "Icw 65 kA / 1 s",
+   "rating_ka": 65,
+   "case": "S0 normal",
+   "value_ka": 49.25632958646888,
+   "util": 0.7577896859456751,
+   "ok": true,
+   "kind": "ik",
+   "note": ""
+  },
+  {
+   "item": "Busway 800 A",
+   "rating": "Icw 36 kA / 1 s",
+   "rating_ka": 36,
+   "case": "S0 normal (start)",
+   "value_ka": 37.147242385535684,
+   "util": 1.0318678440426579,
+   "ok": false,
+   "kind": "ik",
+   "note": "needs current-limiting MCCB, tested combination"
+  },
+  {
+   "item": "Tap-off 63 A MCB",
+   "rating": "Icn 15 kA (generic MCB)",
+   "rating_ka": 15,
+   "case": "S0 normal (busway end)",
+   "value_ka": 25.089719991481832,
+   "util": 1.6726479994321222,
+   "ok": false,
+   "kind": "ik",
+   "note": "use 63 A MCCB ≥ 36 kA or tested cascade"
+  },
+  {
+   "item": "Rack PDU inlet",
+   "rating": "Icc 10 kA [ASSUMED typ.]",
+   "rating_ka": 10,
+   "case": "S0 normal",
+   "value_ka": 13.996940035626661,
+   "util": 1.3996940035626662,
+   "ok": false,
+   "kind": "ik",
+   "note": "needs conditional rating with upstream current-limiting device"
+  }
+ ],
+ "arc_flash": [
+  {
+   "variant": "full",
+   "iarc_ka": 27.653903230528584,
+   "t_s": 0.35,
+   "e_jcm2": 70.18715558406333,
+   "e_cal": 16.77513278777804,
+   "afb_mm": 3175.9154986376766,
+   "method": "IEEE 1584-2018",
+   "ibf_ka": 52.30469779067167,
+   "ppe": "PPE 3 (≥ 25 cal/cm²)",
+   "location": "MSB-A busbar (load side of incomer)",
+   "case": "Base: incomer ST tsd 0.3 s"
+  },
+  {
+   "variant": "full",
+   "iarc_ka": 27.653903230528584,
+   "t_s": 0.1,
+   "e_jcm2": 20.053473024018096,
+   "e_cal": 4.792895082222298,
+   "afb_mm": 1450.1095937854293,
+   "method": "IEEE 1584-2018",
+   "ibf_ka": 52.30469779067167,
+   "ppe": "PPE 2 (≥ 8 cal/cm²)",
+   "location": "MSB-A busbar (load side of incomer)",
+   "case": "ZSI (no restraint → 0.05 s)"
+  },
+  {
+   "variant": "full",
+   "iarc_ka": 27.653903230528584,
+   "t_s": 0.05,
+   "e_jcm2": 10.026736512009048,
+   "e_cal": 2.396447541111149,
+   "afb_mm": 939.7700593673272,
+   "method": "IEEE 1584-2018",
+   "ibf_ka": 52.30469779067167,
+   "ppe": "PPE 1 (≥ 4 cal/cm²)",
+   "location": "MSB-A busbar (load side of incomer)",
+   "case": "Maintenance mode (ARMS, inst.)"
+  },
+  {
+   "variant": "full",
+   "iarc_ka": 27.653903230528584,
+   "t_s": 0.055,
+   "e_jcm2": 11.029410163209954,
+   "e_cal": 2.6360922952222645,
+   "afb_mm": 997.52642964173,
+   "method": "IEEE 1584-2018",
+   "ibf_ka": 52.30469779067167,
+   "ppe": "PPE 1 (≥ 4 cal/cm²)",
+   "location": "MSB-A busbar (load side of incomer)",
+   "case": "Optical arc relay → ACB"
+  },
+  {
+   "variant": "full",
+   "iarc_ka": 27.653903230528584,
+   "t_s": 2.0,
+   "e_jcm2": 401.06946048036195,
+   "e_cal": 95.85790164444597,
+   "afb_mm": 9452.839300794029,
+   "method": "IEEE 1584-2018",
+   "ibf_ka": 52.30469779067167,
+   "ppe": "> 40 cal/cm² — DANGER, no live work",
+   "location": "MSB-A incomer line side / TX LV",
+   "case": "Base: cleared by R-TX (MV)"
+  },
+  {
+   "variant": "full",
+   "iarc_ka": 27.653903230528584,
+   "t_s": 0.067,
+   "e_jcm2": 13.435826926092124,
+   "e_cal": 3.2112397050889396,
+   "afb_mm": 1128.655827739381,
+   "method": "IEEE 1584-2018",
+   "ibf_ka": 52.30469779067167,
+   "ppe": "PPE 1 (≥ 4 cal/cm²)",
+   "location": "MSB-A incomer line side / TX LV",
+   "case": "Optical arc relay → MV VCB intertrip"
+  },
+  {
+   "variant": "full",
+   "iarc_ka": 26.88846636269524,
+   "t_s": 0.25,
+   "e_jcm2": 48.48323357177958,
+   "e_cal": 11.587770930157642,
+   "afb_mm": 2519.573143121704,
+   "method": "IEEE 1584-2018",
+   "ibf_ka": 49.25632958646888,
+   "ppe": "PPE 3 (≥ 25 cal/cm²)",
+   "location": "UOSB-A (on bypass)",
+   "case": "Base: MSB→SBS ACB tsd 0.2 s"
+  },
+  {
+   "variant": "full",
+   "iarc_ka": 26.88846636269524,
+   "t_s": 0.07,
+   "e_jcm2": 13.57530540009828,
+   "e_cal": 3.2445758604441393,
+   "afb_mm": 1135.9737390767134,
+   "method": "IEEE 1584-2018",
+   "ibf_ka": 49.25632958646888,
+   "ppe": "PPE 1 (≥ 4 cal/cm²)",
+   "location": "UOSB-A (on bypass)",
+   "case": "ZSI / maintenance mode"
+  },
+  {
+   "variant": "full",
+   "iarc_ka": 17.31822357113908,
+   "t_s": 0.018,
+   "e_jcm2": 2.079017761430774,
+   "e_cal": 0.49689717051404725,
+   "afb_mm": 263.32069564596935,
+   "method": "IEEE 1584-2018",
+   "ibf_ka": 25.089719991481832,
+   "ppe": "< 1.2 cal/cm² (no arc-rated PPE req.)",
+   "location": "Busway tap-off box (end)",
+   "case": "Base: busway MCCB"
+  },
+  {
+   "method": "Lee (open air, conservative)",
+   "ibf_ka": 12.957301576511194,
+   "iarc_ka": 12.957301576511194,
+   "t_s": 0.6643465246856617,
+   "e_jcm2": 445.32380576969274,
+   "e_cal": 106.43494401761298,
+   "afb_mm": 8588.04568639318,
+   "ppe": "> 40 cal/cm² — DANGER, no live work",
+   "location": "MSG-20 busbar (20 kV)",
+   "case": "Base: R-INC 50 DT 0.65 s"
+  },
+  {
+   "method": "Lee (open air, conservative)",
+   "ibf_ka": 12.957301576511194,
+   "iarc_ka": 12.957301576511194,
+   "t_s": 0.16,
+   "e_jcm2": 107.2509696003361,
+   "e_cal": 25.633596940806907,
+   "afb_mm": 4214.606219471478,
+   "ppe": "PPE 4 (≥ 40 cal/cm²)",
+   "location": "MSG-20 busbar (20 kV)",
+   "case": "Reverse blocking 0.1 s"
+  },
+  {
+   "method": "Lee (open air, conservative)",
+   "ibf_ka": 12.957301576511194,
+   "iarc_ka": 12.957301576511194,
+   "t_s": 0.07,
+   "e_jcm2": 46.92229920014705,
+   "e_cal": 11.214698661603023,
+   "afb_mm": 2787.6999826969104,
+   "ppe": "PPE 3 (≥ 25 cal/cm²)",
+   "location": "MSG-20 busbar (20 kV)",
+   "case": "Optical arc relay"
+  },
+  {
+   "method": "Lee (open air, conservative)",
+   "ibf_ka": 12.074082602929256,
+   "iarc_ka": 12.074082602929256,
+   "t_s": 0.36872677371653495,
+   "e_jcm2": 230.31673411193648,
+   "e_cal": 55.04702058124677,
+   "afb_mm": 6176.168513214234,
+   "ppe": "> 40 cal/cm² — DANGER, no live work",
+   "location": "HV-DH1 busbar (20 kV)",
+   "case": "Base: R-FDR 50 DT 0.35 s"
+  },
+  {
+   "method": "Lee (open air, conservative)",
+   "ibf_ka": 12.074082602929256,
+   "iarc_ka": 12.074082602929256,
+   "t_s": 0.07,
+   "e_jcm2": 43.72389676327044,
+   "e_cal": 10.450262132712819,
+   "afb_mm": 2691.0131515718854,
+   "ppe": "PPE 3 (≥ 25 cal/cm²)",
+   "location": "HV-DH1 busbar (20 kV)",
+   "case": "Optical arc relay"
+  }
+ ],
+ "earthing": {
+  "ic_a": 22.001362139717667,
+  "uph_v": 11547.005383792515,
+  "compensated": {
+   "if_a": 10.77700412405464,
+   "clear_s": 10.0,
+   "epr_v": 1.2932404948865568,
+   "utp_v": 85.00000000000001,
+   "two_utp_v": 170.00000000000003,
+   "ok_simplified": true,
+   "rf_detect_ohm": 9643.036901338179,
+   "coil_a": 24.201498353689434
+  },
+  "low_resistance": {
+   "if_a": 500.48382584855125,
+   "clear_s": 0.5,
+   "epr_v": 60.058059101826146,
+   "utp_v": 220.00000000000009,
+   "two_utp_v": 440.00000000000017,
+   "ok_simplified": true,
+   "rf_detect_ohm": 207.84609690826528,
+   "rn_ohm": 23.09401076758503
+  }
+ },
+ "earthing_coupler_closed": {
+  "ic_a": 44.002724279435334,
+  "uph_v": 11547.005383792515,
+  "compensated": {
+   "if_a": 11.940431709944379,
+   "clear_s": 10.0,
+   "epr_v": 1.4328518051933257,
+   "utp_v": 85.00000000000001,
+   "two_utp_v": 170.00000000000003,
+   "ok_simplified": true,
+   "rf_detect_ohm": 8703.45821479655,
+   "coil_a": 48.40299670737887
+  },
+  "low_resistance": {
+   "if_a": 501.93250516778846,
+   "clear_s": 0.5,
+   "epr_v": 60.23190062013462,
+   "utp_v": 220.00000000000009,
+   "two_utp_v": 440.00000000000017,
+   "ok_simplified": true,
+   "rf_detect_ohm": 207.84609690826528,
+   "rn_ohm": 23.09401076758503
+  }
+ },
+ "hv_epr": [
+  {
+   "ik1_ka": 8.0,
+   "epr_v": 800.0,
+   "utp_v": 654.0000000000001,
+   "two_utp_v": 1308.0000000000002,
+   "t_s": 0.1,
+   "needs_detailed_design": false
+  },
+  {
+   "ik1_ka": 8.0,
+   "epr_v": 800.0,
+   "utp_v": 220.00000000000009,
+   "two_utp_v": 440.00000000000017,
+   "t_s": 0.5,
+   "needs_detailed_design": true
+  }
+ ],
+ "s1_sensitivity": [
+  {
+   "sk_mva": 3000,
+   "ik_s1": 22.249346876759994,
+   "ip_s1": 58.478921570925706,
+   "ik_s0": 12.957301576511194,
+   "ip_s0": 34.42433393493715
+  },
+  {
+   "sk_mva": 4000,
+   "ik_s1": 23.942691319472054,
+   "ip_s1": 63.24186332102643,
+   "ik_s0": 13.513686621016113,
+   "ip_s0": 36.02084460345701
+  },
+  {
+   "sk_mva": 5000,
+   "ik_s1": 25.088151141840076,
+   "ip_s1": 66.49079680377909,
+   "ik_s0": 13.871017829314457,
+   "ip_s0": 37.05177929504283
+  },
+  {
+   "sk_mva": 8000,
+   "ik_s1": 27.027358281481476,
+   "ip_s1": 72.0415987305946,
+   "ik_s0": 14.44383926322601,
+   "ip_s0": 38.713642632057805
+  }
+ ],
+ "ik1_rack": [
+  {
+   "ik1_ka": 5.682087310364595,
+   "source": "grid"
+  },
+  {
+   "ik1_ka": 5.385982599581714,
+   "source": "gen"
+  }
+ ],
+ "data": {
+  "sk_max_mva": 3000.0,
+  "sk_min_mva": 1500.0,
+  "grid_r_x": 0.1,
+  "hv_sr_mva": 63.0,
+  "hv_ur_hv": 130.0,
+  "hv_ur_lv": 21.0,
+  "hv_uk": 0.12,
+  "hv_pk_kw": 250.0,
+  "feeder_km": 0.6,
+  "feeder_r20": 0.125,
+  "feeder_x": 0.11,
+  "tx_cable_km": 0.15,
+  "tx_cable_r20": 0.32,
+  "tx_cable_x": 0.13,
+  "bt_sr_mva": 2.5,
+  "bt_ur_hv": 20.0,
+  "bt_ur_lv": 0.42,
+  "bt_uk": 0.06,
+  "bt_pk_kw": 19.0,
+  "gen_sr_mva": 2.75,
+  "gen_ur_kv": 0.4,
+  "gen_xd2": 0.15,
+  "gen_xd1": 0.22,
+  "gen_x0": 0.08,
+  "tx_msb_busduct_m": 10.0,
+  "gen_msb_busduct_m": 40.0,
+  "msb_sbs_busduct_m": 25.0,
+  "sbs_z_mohm": "(0.05+0.02j)",
+  "uosb_feeder_m": 30.0,
+  "uosb_feeder_size": 185,
+  "uosb_feeder_par": 2,
+  "busway_a": 800,
+  "busway_m": 60.0,
+  "rack_cable_m": 8.0,
+  "rack_cable_size": 16,
+  "ups_kw": 2000.0,
+  "ups_ik_pu": 2.0,
+  "theta_e_c": 80.0
+ }
+}

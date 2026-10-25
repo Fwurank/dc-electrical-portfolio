@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest>=8
+matplotlib>=3.8      # report charts
+playwright>=1.45     # app screenshots (uses system Chrome)

@@ -1,0 +1,775 @@
+{
+ "peak": {
+  "x_no_bess": -2.0767888307155284,
+  "x_no_bess_no_recharge": 1.730921783277806,
+  "x_bess": 2.407202645057749,
+  "x_firm": 0.8399360622171007,
+  "hours_over": 7,
+  "longest_run_h": 7,
+  "e_shaved_mwh": 16.88549673536435,
+  "peak_mw": 42.617999999999995,
+  "peak_no_recharge_mw": 37.818,
+  "mean_mw": 27.898563679860178,
+  "energy_gwh": 244.39141783557514
+ },
+ "peak_e_sweep": [
+  {
+   "e_mwh": 2.5,
+   "x_mw": -1.2255271227609326
+  },
+  {
+   "e_mwh": 5,
+   "x_mw": -0.3879415072527668
+  },
+  {
+   "e_mwh": 10,
+   "x_mw": 0.8399360622171007
+  },
+  {
+   "e_mwh": 20,
+   "x_mw": 2.407202645057749
+  },
+  {
+   "e_mwh": 30,
+   "x_mw": 3.3676090552403792
+  },
+  {
+   "e_mwh": 40,
+   "x_mw": 4.328015465423009
+  },
+  {
+   "e_mwh": 60,
+   "x_mw": 5.855941615103923
+  },
+  {
+   "e_mwh": 80,
+   "x_mw": 5.855941615103923
+  }
+ ],
+ "peak_p_sweep": [
+  {
+   "p_mw": 1,
+   "x_mw": -1.2835157861335833
+  },
+  {
+   "p_mw": 2,
+   "x_mw": -0.4902427415516381
+  },
+  {
+   "p_mw": 3,
+   "x_mw": 0.30303030303030704
+  },
+  {
+   "p_mw": 5,
+   "x_mw": 1.8895763921941973
+  },
+  {
+   "p_mw": 10,
+   "x_mw": 2.407202645057749
+  },
+  {
+   "p_mw": 20,
+   "x_mw": 2.407202645057749
+  }
+ ],
+ "revenue": {
+  "2025": {
+   "total": 4145765.7559496374,
+   "efc": 124.28661168808432,
+   "rev": {
+    "fcrn": 368730.08442330535,
+    "fcrd_up": 3898.08013247034,
+    "fcrd_dn": 432305.51002408285,
+    "mfrr_up": 3241139.277809348,
+    "arbitrage": 140071.75041108325,
+    "degradation": -20358.91831210747,
+    "fcrn_losses": -20020.02853854489
+   },
+   "avg_mw": {
+    "fcrn": 0.9565304091545305,
+    "fcrd_up": 0.03991087796857521,
+    "fcrd_dn": 8.427389309769568,
+    "mfrr_up": 8.939145128476914
+   }
+  },
+  "2026": {
+   "total": 1824488.72665193,
+   "efc": 351.66949522707097,
+   "rev": {
+    "fcrn": 1121841.756197476,
+    "fcrd_up": 75727.16898164043,
+    "fcrd_dn": 120693.39555456386,
+    "mfrr_up": 451496.9590713002,
+    "arbitrage": 186311.6438725764,
+    "degradation": -30506.196233713013,
+    "fcrn_losses": -101076.00079191393
+   },
+   "avg_mw": {
+    "fcrn": 4.832654252087502,
+    "fcrd_up": 1.1051021904999776,
+    "fcrd_dn": 4.096708197940359,
+    "mfrr_up": 3.7635712912184416
+   }
+  },
+  "saturated": {
+   "total": 959267.7966397596,
+   "efc": 338.12872218278943,
+   "rev": {
+    "fcrn": 462534.8744211419,
+    "fcrd_up": 42384.83937342632,
+    "fcrd_dn": 70133.95525527923,
+    "mfrr_up": 257883.62199371046,
+    "arbitrage": 243032.4060981413,
+    "degradation": -41003.48500231486,
+    "fcrn_losses": -75698.41549962477
+   },
+   "avg_mw": {
+    "fcrn": 3.7308311237707867,
+    "fcrd_up": 1.2239644843579278,
+    "fcrd_dn": 4.887114764292346,
+    "mfrr_up": 4.533520651631853
+   }
+  }
+ },
+ "compat": {
+  "No grid limit (stand-alone)": {
+   "x_mw": 0.0,
+   "total": 1831854.5207969788
+  },
+  "40 MW limit, no extra IT": {
+   "x_mw": 0.0,
+   "total": 1824488.72665193
+  },
+  "40 MW limit + firm extra IT (N-1 BESS)": {
+   "x_mw": 0.8399360622171007,
+   "total": 1819976.5034326077
+  },
+  "40 MW limit + max extra IT": {
+   "x_mw": 2.407202645057749,
+   "total": 1802193.0416094721
+  }
+ },
+ "backup": {
+  "usable_mwh": 16.88549673536435,
+  "autonomy": [
+   {
+    "load_mw": 5,
+    "power_ok": true,
+    "minutes": 202.62596082437219,
+    "share_of_campus_peak": 0.13221217409699085
+   },
+   {
+    "load_mw": 10,
+    "power_ok": true,
+    "minutes": 101.31298041218609,
+    "share_of_campus_peak": 0.2644243481939817
+   },
+   {
+    "load_mw": 20,
+    "power_ok": false,
+    "minutes": 50.656490206093046,
+    "share_of_campus_peak": 0.5288486963879634
+   },
+   {
+    "load_mw": 30,
+    "power_ok": false,
+    "minutes": 33.7709934707287,
+    "share_of_campus_peak": 0.7932730445819451
+   },
+   {
+    "load_mw": 37.818,
+    "power_ok": false,
+    "minutes": 26.789618809081947,
+    "share_of_campus_peak": 1.0
+   }
+  ],
+  "replace_all": {
+   "p_mw": 42.617999999999995,
+   "e_mwh": 793.0658349118407,
+   "bess_capex_meur": 142.7518502841313,
+   "genset_capex_meur": 26.0832,
+   "genset_mwe": 68.64,
+   "ratio": 5.4729423645922015
+  },
+  "fail_to_start": [
+   {
+    "n_failed": 1,
+    "load_mw": 1.7600000000000002,
+    "power_ok": true,
+    "hours": 9.59403223600247
+   },
+   {
+    "n_failed": 2,
+    "load_mw": 3.5200000000000005,
+    "power_ok": true,
+    "hours": 4.797016118001235
+   },
+   {
+    "n_failed": 4,
+    "load_mw": 7.040000000000001,
+    "power_ok": true,
+    "hours": 2.3985080590006174
+   },
+   {
+    "n_failed": 6,
+    "load_mw": 10.560000000000002,
+    "power_ok": false,
+    "hours": 1.599005372667078
+   }
+  ],
+  "island": {
+   "i_mv_a": 381.05117766515303,
+   "i_lv_ka": 18.145294174531095,
+   "ik_msg20_grid_ka": 12.957301576511194,
+   "ik_msg20_with_bess_ka": 13.338352754176347,
+   "ik_msg20_worst_ka": 22.675072399547854,
+   "ik_msg20_worst_with_bess_ka": 23.056123577213008,
+   "switchgear_ka": 25.0,
+   "grid_contrib_ka": 0.381051177665153,
+   "ratio_to_grid_fault": 0.029408220177256427
+  },
+  "island_rows": [
+   {
+    "device": "R-FDR hall feeder 20 kV",
+    "i_fault_a": 381.05117766515303,
+    "pickup_a": 320,
+    "multiple": 1.1907849302036033,
+    "t_clear_s": 59.49865685774077,
+    "ok": false
+   },
+   {
+    "device": "R-INC 20 kV incomer",
+    "i_fault_a": 381.05117766515303,
+    "pickup_a": 2100,
+    "multiple": 0.18145294174531096,
+    "t_clear_s": null,
+    "ok": false
+   },
+   {
+    "device": "R-TX block transformer 20 kV",
+    "i_fault_a": 381.05117766515303,
+    "pickup_a": 100,
+    "multiple": 3.81051177665153,
+    "t_clear_s": 5.977159763313608,
+    "ok": false
+   },
+   {
+    "device": "MSB incomer ACB (LV)",
+    "i_fault_a": 18145.294174531096,
+    "pickup_a": 3600,
+    "multiple": 5.040359492925305,
+    "t_clear_s": 0.35,
+    "ok": true
+   },
+   {
+    "device": "Busway feeder MCCB (LV)",
+    "i_fault_a": 10887.176504718658,
+    "pickup_a": 800,
+    "multiple": 13.608970630898323,
+    "t_clear_s": 0.018,
+    "ok": true
+   }
+  ]
+ },
+ "ai": {
+  "base": {
+   "load_1min_change_mw": 10.824990191995681,
+   "grid_1min_change_mw": 4.301570669079393,
+   "load_1s_ramp_mw_min": 547.2523380504483,
+   "grid_1s_ramp_mw_min": 145.52697217142418,
+   "load_osc_pp_mw": 12.343951669920923,
+   "grid_osc_pp_mw": 5.581568233823809,
+   "p_bess_req_mw": 11.432166423955563,
+   "e_swing_mwh": 0.41008725048637024,
+   "e_req_mwh": 0.45565250054041134,
+   "p_sc_req_mw": 0.0,
+   "e_sc_kwh": 0.0,
+   "throughput_mwh_per_h": 1.5926106255106356,
+   "ok_ramp": false,
+   "ok_osc": false
+  },
+  "hybrid": {
+   "load_1min_change_mw": 10.824990191995681,
+   "grid_1min_change_mw": 3.1480624812502427,
+   "load_1s_ramp_mw_min": 547.2523380504483,
+   "grid_1s_ramp_mw_min": 26.643716052008344,
+   "load_osc_pp_mw": 12.343951669920923,
+   "grid_osc_pp_mw": 0.7921865253045988,
+   "p_bess_req_mw": 9.10753772796527,
+   "e_swing_mwh": 0.40865147071191354,
+   "e_req_mwh": 0.45405718967990394,
+   "p_sc_req_mw": 9.976930126136763,
+   "e_sc_kwh": 23.174738300479078,
+   "throughput_mwh_per_h": 0.6426847234730237,
+   "ok_ramp": true,
+   "ok_osc": true
+  },
+  "ramp_sweep": [
+   {
+    "ramp_mw_min": 1,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 2.331591544964276,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 143.52697217141085,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 5.580092925823278,
+    "p_bess_req_mw": 10.787625895738348,
+    "e_swing_mwh": 1.0207793627250252,
+    "e_req_mwh": 1.1341992919166948,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.6957754019957607,
+    "ok_ramp": false,
+    "ok_osc": false
+   },
+   {
+    "ramp_mw_min": 2,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 3.3284221378031518,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 144.52697217142315,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 5.580502456485263,
+    "p_bess_req_mw": 10.872566685626758,
+    "e_swing_mwh": 0.6041936256626633,
+    "e_req_mwh": 0.6713262507362926,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.6618722151379612,
+    "ok_ramp": false,
+    "ok_osc": false
+   },
+   {
+    "ramp_mw_min": 3,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 4.301570669079393,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 145.52697217142418,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 5.581568233823809,
+    "p_bess_req_mw": 11.432166423955563,
+    "e_swing_mwh": 0.41008725048637024,
+    "e_req_mwh": 0.45565250054041134,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.5926106255106356,
+    "ok_ramp": false,
+    "ok_osc": false
+   },
+   {
+    "ramp_mw_min": 5,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 5.627158935059747,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 147.52697217141574,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 5.5861680399462434,
+    "p_bess_req_mw": 11.017960733777615,
+    "e_swing_mwh": 0.24990625733058083,
+    "e_req_mwh": 0.27767361925620093,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.4969040446067345,
+    "ok_ramp": false,
+    "ok_osc": false
+   },
+   {
+    "ramp_mw_min": 10,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 8.182023832851819,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 132.65463598505528,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 5.451566619238273,
+    "p_bess_req_mw": 10.697073273580582,
+    "e_swing_mwh": 0.13498827414719852,
+    "e_req_mwh": 0.149986971274665,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.4133884911446295,
+    "ok_ramp": true,
+    "ok_osc": false
+   },
+   {
+    "ramp_mw_min": 20,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 8.155865249598175,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 130.39989756056784,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 5.393558720897355,
+    "p_bess_req_mw": 10.646361577952641,
+    "e_swing_mwh": 0.12163582823336734,
+    "e_req_mwh": 0.13515092025929704,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.4016795102364348,
+    "ok_ramp": true,
+    "ok_osc": false
+   }
+  ],
+  "resp_sweep": [
+   {
+    "response_ms": 0,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 3.1027944612501983,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 16.26281564503408,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 0.6308880063932466,
+    "p_bess_req_mw": 11.43212804970066,
+    "e_swing_mwh": 0.41011568995638614,
+    "e_req_mwh": 0.45568409995154013,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.5925734445796924,
+    "ok_ramp": true,
+    "ok_osc": true
+   },
+   {
+    "response_ms": 20,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 3.2392841575485427,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 29.525631290064283,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 1.2595373629417654,
+    "p_bess_req_mw": 11.432146725051942,
+    "e_swing_mwh": 0.4101130635201241,
+    "e_req_mwh": 0.45568118168902677,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.5925778673479463,
+    "ok_ramp": false,
+    "ok_osc": false
+   },
+   {
+    "response_ms": 50,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 3.3807225932971967,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 43.73890672899748,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 1.8871667652482151,
+    "p_bess_req_mw": 11.432157652417514,
+    "e_swing_mwh": 0.41010985729950544,
+    "e_req_mwh": 0.4556776192216727,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.5925823760496198,
+    "ok_ramp": false,
+    "ok_osc": false
+   },
+   {
+    "response_ms": 100,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 3.8314598397623456,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 91.80269954809447,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 3.7544972939337318,
+    "p_bess_req_mw": 11.432167664720952,
+    "e_swing_mwh": 0.4100996644782947,
+    "e_req_mwh": 0.45566629386477187,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.5925956801099714,
+    "ok_ramp": false,
+    "ok_osc": false
+   },
+   {
+    "response_ms": 150,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 4.301570669079393,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 145.52697217142418,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 5.581568233823809,
+    "p_bess_req_mw": 11.432166423955563,
+    "e_swing_mwh": 0.41008725048637024,
+    "e_req_mwh": 0.45565250054041134,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.5926106255106356,
+    "ok_ramp": false,
+    "ok_osc": false
+   },
+   {
+    "response_ms": 300,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 5.398748198900535,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 283.52093434668825,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 9.574577913051542,
+    "p_bess_req_mw": 11.432100474564328,
+    "e_swing_mwh": 0.41004101491785483,
+    "e_req_mwh": 0.45560112768650535,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.592652754345264,
+    "ok_ramp": false,
+    "ok_osc": false
+   },
+   {
+    "response_ms": 600,
+    "load_1min_change_mw": 10.824990191995681,
+    "grid_1min_change_mw": 7.637876353236479,
+    "load_1s_ramp_mw_min": 547.2523380504483,
+    "grid_1s_ramp_mw_min": 590.058535494715,
+    "load_osc_pp_mw": 12.343951669920923,
+    "grid_osc_pp_mw": 15.893234737676202,
+    "p_bess_req_mw": 11.431870686915792,
+    "e_swing_mwh": 0.4099157865055082,
+    "e_req_mwh": 0.45546198500612023,
+    "p_sc_req_mw": 0.0,
+    "e_sc_kwh": 0.0,
+    "throughput_mwh_per_h": 1.5927376511557825,
+    "ok_ramp": false,
+    "ok_osc": false
+   }
+  ]
+ },
+ "business": {
+  "kpi": {
+   "capex": 4080000.0,
+   "npv": 7195878.02566215,
+   "irr": 0.3367063294492073,
+   "payback_y": 2.726034546832363,
+   "year1_cf": 1552741.6844527966
+  },
+  "scenarios": {
+   "2025": {
+    "capex": 4080000.0,
+    "npv": 22801784.766416147,
+    "irr": 0.8310032627661652,
+    "payback_y": 1.1651260865823712,
+    "year1_cf": 3517201.973122483
+   },
+   "2026": {
+    "capex": 4080000.0,
+    "npv": 7195878.02566215,
+    "irr": 0.3367063294492073,
+    "payback_y": 2.726034546832363,
+    "year1_cf": 1552741.6844527966
+   },
+   "saturated": {
+    "capex": 4080000.0,
+    "npv": 2003139.3030059095,
+    "irr": 0.1505017879148184,
+    "payback_y": 5.341581430401859,
+    "year1_cf": 826226.5893957631
+   }
+  },
+  "tornado": [
+   {
+    "label": "Cycle life 4 000 / 8 000 EFC",
+    "low": 7094172.083766831,
+    "high": 7343106.689749492
+   },
+   {
+    "label": "Arbitrage spread ±50 %",
+    "low": 6515109.62244725,
+    "high": 7876646.428877054
+   },
+   {
+    "label": "CAPEX ±30 %",
+    "low": 5748916.290817078,
+    "high": 8642839.760507224
+   },
+   {
+    "label": "WACC 10 % / 5 %",
+    "low": 5517582.808976166,
+    "high": 8597351.620195005
+   },
+   {
+    "label": "Realisation 0.70 / 1.00",
+    "low": 5136455.438710453,
+    "high": 9255300.612613847
+   },
+   {
+    "label": "Price trend −10 %/yr / 0",
+    "low": 4245861.988184744,
+    "high": 9019286.562940616
+   },
+   {
+    "label": "Capacity prices ±50 %",
+    "low": 2041615.7658472462,
+    "high": 12350140.285477053
+   }
+  ],
+  "shaved_mw": 2.617999999999995,
+  "subs_eur": 57595.99999999989,
+  "it": {
+   "annuity_factor": 9.10791400510915,
+   "npv_per_keur_mw": 0.021924594684057257
+  },
+  "rows": [
+   {
+    "year": 1,
+    "capacity": 1418380.7871611067,
+    "arbitrage": 158364.89729168994,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1552741.6844527966,
+    "soh_end": 0.9782776834924309
+   },
+   {
+    "year": 2,
+    "capacity": 1357310.042264561,
+    "arbitrage": 156402.74125847282,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1489708.7835230338,
+    "soh_end": 0.9565553669848619
+   },
+   {
+    "year": 3,
+    "capacity": 1298626.999353363,
+    "arbitrage": 154440.58522525572,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1429063.5845786186,
+    "soh_end": 0.9348330504772928
+   },
+   {
+    "year": 4,
+    "capacity": 1242243.359978799,
+    "arbitrage": 152478.42919203863,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1370717.7891708377,
+    "soh_end": 0.9131107339697238
+   },
+   {
+    "year": 5,
+    "capacity": 1188073.9746672907,
+    "arbitrage": 150516.27315882154,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1314586.2478261122,
+    "soh_end": 0.8913884174621547
+   },
+   {
+    "year": 6,
+    "capacity": 1136036.733450492,
+    "arbitrage": 148554.11712560445,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1260586.8505760964,
+    "soh_end": 0.8696661009545856
+   },
+   {
+    "year": 7,
+    "capacity": 1086052.4601295004,
+    "arbitrage": 146591.96109238736,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1208640.4212218877,
+    "soh_end": 0.8479437844470166
+   },
+   {
+    "year": 8,
+    "capacity": 1038044.8101476632,
+    "arbitrage": 144629.80505917026,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1158670.6152068335,
+    "soh_end": 0.8262214679394475
+   },
+   {
+    "year": 9,
+    "capacity": 991940.1719506194,
+    "arbitrage": 142667.64902595314,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1110603.8209765726,
+    "soh_end": 0.8044991514318784
+   },
+   {
+    "year": 10,
+    "capacity": 947667.5717162655,
+    "arbitrage": 140705.49299273602,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -224449.30320923016,
+    "cf": 839919.7614997713,
+    "soh_end": 0.9
+   },
+   {
+    "year": 11,
+    "capacity": 981134.8534609479,
+    "arbitrage": 149331.99312360364,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1106462.8465845515,
+    "soh_end": 0.878277683492431
+   },
+   {
+    "year": 12,
+    "capacity": 938044.213530266,
+    "arbitrage": 147369.83709038654,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1061410.0506206525,
+    "soh_end": 0.8565553669848619
+   },
+   {
+    "year": 13,
+    "capacity": 896655.99062731,
+    "arbitrage": 145407.68105716945,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 1018059.6716844793,
+    "soh_end": 0.8348330504772928
+   },
+   {
+    "year": 14,
+    "capacity": 856906.8213063544,
+    "arbitrage": 143445.52502395236,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -0.0,
+    "cf": 976348.3463303067,
+    "soh_end": 0.8131107339697238
+   },
+   {
+    "year": 15,
+    "capacity": 818735.6117530914,
+    "arbitrage": 141483.36899073527,
+    "subscription": 57595.99999999989,
+    "it_value": 0.0,
+    "opex": -81600.0,
+    "augmentation": -169565.35561604603,
+    "cf": 766649.6251277806,
+    "soh_end": 0.9
+   }
+  ]
+ }
+}

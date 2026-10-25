@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Donglin (Franklin) Wu · Data center electrical portfolio</title><meta name="description" content="Electrical power systems portfolio: design basis, SLDs, sizing, short-circuit/protection and BESS study for a fictional 30 MW IT Nordic data center.">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Donglin (Franklin) Wu <span>· Data center electrical portfolio</span></a><nav><a href="index.html#projects">Projects</a><a href="index.html#assumptions">Assumptions</a><a href="index.html#about">About</a><a href="https://github.com/Fwurank/dc-electrical-portfolio">GitHub</a></nav></div></header>
+
+<div class="hero"><div class="wrap">
+<h1>Donglin (Franklin) Wu</h1>
+<p class="role">Electrical Power Systems Engineer: data center electrical infrastructure &amp; energy storage</p>
+<p class="loc">Gothenburg, Sweden</p>
+<p class="lead">This is an engineering portfolio for one hyperscale data center campus, carried from the design basis and single-line diagrams through equipment sizing, short-circuit and protection studies, to a grid-constrained battery storage study. Every number can be reproduced from the code in the repository.</p>
+<a class="btn solid" href="#projects">View projects</a><a class="btn" href="https://www.linkedin.com/in/donglinwu1998">LinkedIn</a><a class="btn" href="https://github.com/Fwurank/dc-electrical-portfolio">GitHub repository</a>
+<div class="note"><b>About the data.</b> The project is a <b>fictional 30 MW IT Nordic data center campus</b> (Dalarna, bidding zone SE3, Sweden). It is built only from <b>public standards, public market data and assumed parameters</b>; assumptions are marked [ASSUMED] / (A). <b>No employer, client or vendor data is used.</b> It is a concept-level study, not for construction or investment decisions.</div>
+</div></div>
+
+<section id="projects"><div class="wrap">
+<h2>Projects</h2><p class="sub">Four connected studies of the same campus. Each project feeds its ratings into the next, and the design basis is updated to Rev P2 with all of them.</p>
+<div class="grid"><article class="card"><a href="projects/01-design-basis.html"><img src="assets/img/p01_sld.jpg" alt="Design basis &amp; single-line diagrams preview" loading="lazy"></a>
+<div class="body"><div class="num">PROJECT 01</div><h3><a href="projects/01-design-basis.html">Design basis & single-line diagrams</a></h3>
+<p>Design basis DB-001 Rev P2 for a 30 MW IT campus: two 130 kV lines, 2 × 63 MVA 130/20 kV transformers, six 5 MW halls with 24 power blocks of 2.5 MVA in distributed-redundant 4N/3. Eight A3 single-line diagrams drawn in Python with IEC 60617 symbols; every text is measured at ≥ 2.5 mm on A3 by an automated checker.</p><ul class="tags"><li>IEC 60617</li><li>EN 50600</li><li>Tier III concept</li><li>matplotlib</li></ul><div class="links"><a href="01-design-basis-sld/docs/DWU-DC-E-DB-001_Design_Basis.pdf">Design basis (PDF)</a><a href="01-design-basis-sld/drawings/DWU-DC-E-SLD_concept_set_RevP2_A3.pdf">SLD set, 8 × A3 (PDF)</a><a href="projects/01-design-basis.html">Project page →</a><a href="https://github.com/Fwurank/dc-electrical-portfolio/tree/main/01-design-basis-sld">Code</a></div></div></article><article class="card"><a href="projects/02-load-sizing.html"><img src="assets/img/p02_app.jpg" alt="Load &amp; equipment sizing tool preview" loading="lazy"></a>
+<div class="body"><div class="num">PROJECT 02</div><h3><a href="projects/02-load-sizing.html">Load & equipment sizing tool</a></h3>
+<p>Python package and Streamlit app that turn IT load into facility load and size transformers, gensets, UPS/batteries, cables and busway in normal and failure modes. Design peak 37.8 MW, but 42.6 MW with UPS recharge, which exceeds the 40 MW subscription. Annualised PUE 1.165. The battery per UPS module goes from 120 to 165 kWh because of the C-rate limit.</p><ul class="tags"><li>IEC 60364-5-52</li><li>IEC 60909</li><li>ISO 8528</li><li>Streamlit</li></ul><div class="links"><a href="02-load-sizing/report/DWU-DC-E-CALC-002_Load_and_Sizing_Calc.pdf">Calculation report (PDF)</a><a href="projects/02-load-sizing.html">Project page →</a><a href="https://github.com/Fwurank/dc-electrical-portfolio/tree/main/02-load-sizing">Code</a></div></div></article><article class="card"><a href="projects/03-shortcircuit-protection.html"><img src="assets/img/p03_tcc.jpg" alt="Short-circuit, protection &amp; arc-flash study preview" loading="lazy"></a>
+<div class="body"><div class="num">PROJECT 03</div><h3><a href="projects/03-shortcircuit-protection.html">Short-circuit, protection & arc-flash study</a></h3>
+<p>Own IEC 60909 nodal solver over 7 scenarios, cross-checked with pandapower: MSB 52.3 kA / ip 122 kA. Closing the generator back onto the grid would give 81.8 kA against 65 kA switchgear, so retransfer is open-transition only. Paralleling T1 and T2 would load the 20 kV peak rating to 94 %, so that interlock stays. Optical arc protection with MV intertrip cuts the LV arc-flash energy from 96 to 3.2 cal/cm².</p><ul class="tags"><li>IEC 60909</li><li>IEC 60255</li><li>IEEE 1584-2018</li><li>pandapower</li></ul><div class="links"><a href="03-shortcircuit-protection/report/DWU-DC-E-CALC-003_ShortCircuit_Protection_ArcFlash.pdf">Study report (PDF)</a><a href="projects/03-shortcircuit-protection.html">Project page →</a><a href="https://github.com/Fwurank/dc-electrical-portfolio/tree/main/03-shortcircuit-protection">Code</a></div></div></article><article class="card"><a href="projects/04-bess.html"><img src="assets/img/p04_peak.jpg" alt="BESS in a grid-constrained data center preview" loading="lazy"></a>
+<div class="body"><div class="num">PROJECT 04</div><h3><a href="projects/04-bess.html">BESS in a grid-constrained data center</a></h3>
+<p>10 MW / 20 MWh BESS behind a 40 MW grid subscription, using LP dispatch. It turns −2.08 MW of headroom into +2.41 MW of extra IT capacity, of which only +0.84 MW is firm at N-1. It gives 27 min of backup but cannot replace the gensets: a 381 A island fault is not cleared by the 20 kV relays. Revenue stacking brings ≈ 1.82 M€/yr (2026 prices), NPV ≈ 7.2 M€. AI-training swings need about 10 ms response.</p><ul class="tags"><li>LP / HiGHS</li><li>FCR / mFRR</li><li>Svk</li><li>Streamlit</li></ul><div class="links"><a href="04-bess/report/DWU-DC-E-CALC-004_BESS_Study.pdf">Study report (PDF)</a><a href="projects/04-bess.html">Project page →</a><a href="https://github.com/Fwurank/dc-electrical-portfolio/tree/main/04-bess">Code</a></div></div></article></div>
+</div></section>
+
+<section id="campus" style="padding-top:0"><div class="wrap">
+<h2>The campus at a glance</h2><p class="sub">Main design data used by all four projects.</p>
+<table class="kv">
+<tr><th>IT capacity</th><td>30 MW IT in 6 data halls × 5 MW; 24 power blocks of 2.5 MVA, distributed redundant 4N/3; 2N mechanical</td></tr>
+<tr><th>Grid connection</th><td>2 × 130 kV lines, 2 × 63 MVA 130/20 kV transformers (N-1 63 %), 40 MW subscribed, S″k 1 500–3 000 MVA [ASSUMED]</td></tr>
+<tr><th>Backup</th><td>Per block: 2 × 1 000 kW UPS with 165 kWh LFP per module, 2 750 kVA HVO genset; open-transition retransfer only</td></tr>
+<tr><th>Fault levels</th><td>20 kV: 13.0 kA (13.3 kA with BESS); MSB: 52.3 kA / ip 122 kA in 65 kA / 143 kA switchgear</td></tr>
+<tr><th>Energy storage</th><td>10 MW / 20 MWh LFP on two 20 kV bays, PCS 2 × 5.5 MVA; EMS priority = grid import limit</td></tr>
+<tr><th>Efficiency</th><td>Annualised PUE 1.165 at 75 % IT load (Dalarna climate bins)</td></tr>
+</table>
+</div></section>
+
+<section id="assumptions" style="padding-top:0"><div class="wrap">
+<h2>Assumptions &amp; limitations</h2><p class="sub">What the results depend on, and what this work is not.</p>
+<div class="cols">
+<div class="box"><h3>Key assumptions</h3><ul>
+<li>Grid strength at 130 kV: 3 000 / 1 500 MVA, X/R 10. All fault levels scale with it, and the T1//T2 margin is lost above ≈ 4 000 MVA.</li>
+<li>Climate: annual mean +4.5 °C, design +32 °C. PUE and the design peak depend on these.</li>
+<li>Vendor-typical data: UPS efficiency curve, LFP end of life 0.8 and C-rate ≤ 8 C, genset x′d 0.22, busway Icw 36 kA, PCS fault current 1.2 × In.</li>
+<li>BESS economics: Svk / Mimer capacity prices for 2025 and 2026 plus a "saturated" case, realisation 0.85, CAPEX 120 €/kWh + 75 €/kW × 1.2.</li>
+</ul></div>
+<div class="box"><h3>Limitations</h3><ul>
+<li>Concept-level calculations, not validated in a commercial tool (ETAP, PowerFactory). Project 03 is cross-checked with pandapower.</li>
+<li>Generic LV trip curves. Selectivity and cascade tables need the selected manufacturer's data.</li>
+<li>The 20 kV arc flash uses the conservative Lee method. Earthing is screened only; a soil model and DSO data are still needed.</li>
+<li>BESS profiles are synthetic, hourly and assume perfect foresight. Market depth is not modelled, and Tier III / EN 50600 statements are interpretations, not certification advice.</li>
+</ul></div></div>
+<p style="margin-top:20px"><a class="btn dark" href="ASSUMPTIONS_REGISTER_ALL.csv" download>Download the assumptions register (CSV, 188 rows)</a>
+<a class="btn dark" href="https://github.com/Fwurank/dc-electrical-portfolio/blob/main/REVIEW_GUIDE.md">Review guide: algorithms &amp; code map</a>
+<a class="btn dark" href="https://github.com/Fwurank/dc-electrical-portfolio/blob/main/TODO_final_fixes.md">Change log: rating changes B1–B31</a></p>
+</div></section>
+
+<section id="about" style="padding-top:0"><div class="wrap">
+<h2>About</h2>
+<p>I am an electrical power systems engineer based in Gothenburg, Sweden, focused on data center electrical infrastructure and energy storage. I wrote this portfolio to show how I work: I start from a clear design basis, size equipment with calculations that can be traced, check fault levels and protection against standards, and look at what storage can and cannot do on a constrained grid connection. Contact: <a href="https://www.linkedin.com/in/donglinwu1998">LinkedIn</a>.</p>
+</div></section>
+
+<footer><div class="wrap">© 2026 Donglin (Franklin) Wu. Documents, drawings and figures © D. Wu, all rights reserved; code under the MIT License.
+Fictional case study built from public standards and assumed parameters, not employer, client or vendor data. Not for construction or investment decisions.
+· <a href="https://www.linkedin.com/in/donglinwu1998">LinkedIn</a> · <a href="https://github.com/Fwurank/dc-electrical-portfolio">Source on GitHub</a></div></footer>
+</body></html>
