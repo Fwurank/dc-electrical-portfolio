@@ -23,7 +23,8 @@ FS_TAG = 14.0                    # -> 3.60 mm caps (busbar / equipment tags)
 FS_TITLE = 16.0
 FS_DWG = 20.0                    # -> 5.14 mm caps (drawing number)
 LW, BUS_LW, THIN = 0.8, 3.0, 0.5
-INK, HV_C, MV_C, LV_C, UPS_C, GEN_C, CTL_C = "#111111", "#7a1f1f", "#1f3b73", "#111111", "#0b6e4f", "#8a5a00", "#5a2a82"
+# Output is pure black (see monochrome()); the other values are only voltage-level tokens.
+INK, HV_C, MV_C, LV_C, UPS_C, GEN_C, CTL_C = "#000000", "#7a1f1f", "#1f3b73", "#111111", "#0b6e4f", "#8a5a00", "#5a2a82"  # noqa: tokens
 REV, DATE = "P2", "2026-10-25"
 LINE_H = FS_MIN * PT_MM * 1.30   # 4.6 mm line pitch for 10 pt text
 R_TX = 6.0                       # one transformer circle radius for every transformer (P1 weakness fixed)
@@ -349,7 +350,7 @@ def table(ax, x, y_top, rows, widths=None, header=True, pad=1.4, c=INK, title=No
         h = nl * LINE_H + 1.0
         xx = x
         for j, cell in enumerate(r):
-            box(ax, xx, y - h, widths[j], h, c=c, lw=THIN, fill="#e9eef5" if (header and i == 0) else None)
+            box(ax, xx, y - h, widths[j], h, c=c, lw=THIN, fill=None)
             lines_text(ax, xx + pad, y - 0.5, str(cell).split("\n"), first_bold=False)
             if header and i == 0:
                 ax.texts[-1].set_fontweight("bold")
@@ -367,35 +368,94 @@ def frame_and_title(ax, dwg_no, title, subtitle, sheet, sheets, revs=None):
     for j, L in enumerate("FEDCBA"):
         ym = 10 + (j + 0.5) * 277 / 6
         text(ax, 15, ym, L, ha="center"); text(ax, 414.5, ym, L, ha="center")
-    # title block 180 x 50 mm at bottom right
+    # Stepped title block, anchored in the bottom-right corner of the frame (Rev P2 monochrome issue):
+    #   lower tier, full width 180 mm: drawing no. / sheet / rev row + title, subtitle, status lines;
+    #   upper tier, narrow 130 mm, right-aligned: project lines + revision table.
+    # Every title-block text is FS_MIN (10 pt, 2.57 mm caps) except the drawing number (FS_DWG).
     x0, y0, w = 230, 10, 180
-    box(ax, x0, y0, w, 50, lw=1.2, fill="white", z=1)
-    line(ax, [(x0, y0 + 36), (x0 + w, y0 + 36)], lw=THIN)
+    wn = 130; xn = x0 + w - wn
+    box(ax, x0, y0, w, 30, lw=1.2, fill="white", z=1)                 # lower tier, full width
     line(ax, [(x0, y0 + 14), (x0 + w, y0 + 14)], lw=THIN)
     line(ax, [(x0 + 118, y0), (x0 + 118, y0 + 14)], lw=THIN)
     line(ax, [(x0 + 148, y0), (x0 + 148, y0 + 14)], lw=THIN)
-    text(ax, x0 + 2, y0 + 46, "Nordic Hyperscale DC Campus (fictional) · 30 MW IT · SE3", weight="bold")
-    text(ax, x0 + 2, y0 + 40.5, "Portfolio D. Wu · public standards and [ASSUMED] data only")
-    text(ax, x0 + 2, y0 + 30.5, title, fs=FS_TAG, weight="bold")
-    text(ax, x0 + 2, y0 + 24.0, subtitle)
-    text(ax, x0 + 2, y0 + 18.5, "CONCEPT · NOT FOR CONSTRUCTION · scale NTS · A3", c=HV_C)
     text(ax, x0 + 2, y0 + 11.0, "Drawing no.")
     text(ax, x0 + 2, y0 + 4.6, dwg_no, fs=FS_DWG, weight="bold")
-    text(ax, x0 + 120, y0 + 11.0, "Sheet"); text(ax, x0 + 120, y0 + 4.6, f"{sheet} / {sheets}", fs=FS_TAG, weight="bold")
-    text(ax, x0 + 150, y0 + 11.0, "Rev"); text(ax, x0 + 150, y0 + 4.6, REV, fs=FS_TAG, weight="bold")
-    # revision block above the title block
+    text(ax, x0 + 120, y0 + 11.0, "Sheet"); text(ax, x0 + 120, y0 + 5.0, f"{sheet} / {sheets}", weight="bold")
+    text(ax, x0 + 150, y0 + 11.0, "Rev"); text(ax, x0 + 150, y0 + 5.0, REV, weight="bold")
+    text(ax, x0 + 2, y0 + 26.0, title, weight="bold")
+    text(ax, x0 + 2, y0 + 21.4, subtitle)
+    text(ax, x0 + 2, y0 + 16.8, "CONCEPT · NOT FOR CONSTRUCTION · scale NTS · A3")
+    yt = y0 + 30                                                       # upper tier, narrow, right-aligned
+    box(ax, xn, yt, wn, 11, lw=1.2, fill="white", z=1)
+    text(ax, xn + 2, yt + 7.9, "Nordic Hyperscale DC Campus (fictional) · 30 MW IT · SE3", weight="bold")
+    text(ax, xn + 2, yt + 3.1, "Portfolio D. Wu · public standards and [ASSUMED] data only")
     revs = revs or [("P1", "2026-10-24", "First concept issue"), (REV, DATE, "CALC-002/3/4 ratings, IEC symbols, ≥2.5 mm text")]
-    yr = y0 + 50
+    yr = yt + 11
     for rv, d, desc in revs:
-        box(ax, x0, yr, w, LINE_H + 1, lw=THIN, fill="white")
-        text(ax, x0 + 2, yr + (LINE_H + 1) / 2, rv, weight="bold")
-        text(ax, x0 + 12, yr + (LINE_H + 1) / 2, d)
-        text(ax, x0 + 37, yr + (LINE_H + 1) / 2, desc)
+        box(ax, xn, yr, wn, LINE_H + 1, lw=THIN, fill="white")
+        text(ax, xn + 2, yr + (LINE_H + 1) / 2, rv, weight="bold")
+        text(ax, xn + 11, yr + (LINE_H + 1) / 2, d)
+        text(ax, xn + 35, yr + (LINE_H + 1) / 2, desc)
         yr += LINE_H + 1
+    box(ax, xn, yt, wn, yr - yt, lw=1.2, z=1.5)                         # heavy outline of the narrow tier
     return yr   # top of the revision block
 
 
+# ---------------------------------------------------------------- monochrome output (Rev P2)
+# The sheet scripts still tag conductors with a voltage-level token (HV_C, MV_C, ...). Before export every
+# artist is forced to pure black on white and the token is turned into a line-weight code, so nothing
+# depends on colour:
+#   conductors: 130 kV 1.4 pt heavy, 20 kV 1.0, LV / UPS / genset / BESS 0.7
+#   busbars:    130 kV 4.2, 20 kV 3.2, LV 2.6, UPS / critical bus hollow (3.0 outline, white core)
+#   protection / control signals thin dashed, interlocks thin dash-dot (unchanged line styles)
+COND_LW = {"hv": 1.4, "mv": 1.0, "lv": 0.7}
+BUS_W = {"hv": 4.2, "mv": 3.2, "lv": 2.6}
+UPS_BUS_W, UPS_BUS_CORE = 3.0, 1.2
+from matplotlib.colors import to_hex as _hex
+_LEVEL = {_hex(HV_C): "hv", _hex(MV_C): "mv", _hex(UPS_C): "ups"}
+
+
+def _bw(col):
+    """Pure white stays white, transparent stays transparent, everything else becomes pure black."""
+    from matplotlib.colors import to_rgba
+    if isinstance(col, str) and col.lower() == "none":
+        return col
+    r, g, b, a = to_rgba(col)
+    if a == 0:
+        return col
+    return (1, 1, 1, a) if min(r, g, b) > 0.97 else (0, 0, 0, a)
+
+
+def monochrome(fig):
+    from matplotlib.lines import Line2D
+    for ax in fig.axes:
+        for ln in list(ax.lines):
+            lvl = _LEVEL.get(_hex(ln.get_color()), "lv")
+            white = _bw(ln.get_color())[0] == 1
+            ln.set_color(_bw(ln.get_color()))
+            if white or ln.get_gid() == "keep" or ln.get_linestyle() not in ("-", "solid"):
+                continue
+            lw = ln.get_linewidth()
+            if abs(lw - BUS_LW) < 1e-6:                                 # busbar
+                if lvl == "ups":
+                    ln.set_linewidth(UPS_BUS_W)
+                    core = Line2D(*ln.get_data(), color="white", lw=UPS_BUS_CORE, zorder=ln.get_zorder() + 0.01,
+                                  solid_capstyle="butt")
+                    ax.add_line(core)
+                else:
+                    ln.set_linewidth(BUS_W[lvl])
+            elif LW - 0.05 <= lw <= LW + 0.25:                           # power conductor / blade
+                ln.set_linewidth(COND_LW.get(lvl, COND_LW["lv"]) + (lw - LW))
+        for p in ax.patches:
+            p.set_edgecolor(_bw(p.get_edgecolor()))
+            if p.get_fill():
+                p.set_facecolor(_bw(p.get_facecolor()))
+        for t in ax.texts:
+            t.set_color("black")
+
+
 def save(fig, outdir, stem):
+    monochrome(fig)
     os.makedirs(outdir, exist_ok=True)
     for ext, kw in (("svg", {}), ("pdf", {}), ("png", {"dpi": 200})):
         fig.savefig(os.path.join(outdir, f"{stem}.{ext}"), **kw)

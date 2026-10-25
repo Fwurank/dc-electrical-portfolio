@@ -62,7 +62,7 @@ def sym(ax, kind, x, y):
 LEGEND = [
     ("CB", "Circuit breaker"), ("CBW", "Circuit breaker, withdrawable"), ("DS", "Disconnector"),
     ("SWD", "Switch-disconnector"), ("FU", "Fuse"), ("ES", "Earthing switch"), ("CT", "Current transformer (2 cores)"),
-    ("VT", "Voltage transformer"), ("SA", "Surge arrester / SPD"), ("BUS", "Busbar"), ("TX", "Transformer, 2 windings"),
+    ("VT", "Voltage transformer"), ("SA", "Surge arrester / SPD"), ("BUS", "Busbar (weight per level)"), ("TX", "Transformer, 2 windings"),
     ("E", "Earth"), ("G", "Generator, 3-phase"),
     ("UPS", "Rectifier (ac/dc), inverter (dc/ac)"), ("SBS", "Static bypass switch"), ("BAT", "Battery"),
     ("L", "Adjustable inductor (Petersen coil)"), ("R", "Resistor"), ("BTS", "Busbar trunking / busway"),
@@ -81,14 +81,23 @@ def draw(outdir):
         x0, y = 24 + col * 104, 268 - row * ROW
         sym(ax, k, x0 + 9 + (0 if k != "UPS" else -2), y)
         text(ax, x0 + 26, y, d)
-    # colour code
-    yc = 100.0
-    text(ax, 24, yc + 6, "COLOUR CODE", fs=FS_TAG, weight="bold")
-    for i, (c, d) in enumerate(((HV_C, "130 kV"), (MV_C, "20 kV"), (LV_C, "0.4 / 0.69 kV"), (UPS_C, "UPS / critical"),
-                                (GEN_C, "genset / BESS"), (CTL_C, "protection / control"))):
-        x = 24 + (i % 3) * 66; y = yc - 2 - (i // 3) * 7
-        line(ax, [(x, y), (x + 10, y)], c=c, lw=2.0)
-        text(ax, x + 13, y, d, c=c)
+    # line code (monochrome drawings: line weight / style instead of colour)
+    yc = 104.0
+    text(ax, 24, yc + 6, "LINE CODE (black on white; no colour code)", fs=FS_TAG, weight="bold")
+    keys = [("130 kV conductor", dict(lw=COND_LW["hv"])), ("20 kV conductor", dict(lw=COND_LW["mv"])),
+            ("0.4 / 0.69 kV conductor", dict(lw=COND_LW["lv"])),
+            ("130 kV busbar", dict(lw=BUS_W["hv"])), ("20 kV busbar", dict(lw=BUS_W["mv"])),
+            ("0.4 / 0.69 kV busbar", dict(lw=BUS_W["lv"])),
+            ("UPS / critical busbar", dict(lw=UPS_BUS_W, core=True)),
+            ("protection / control", dict(lw=THIN, ls=(0, (3, 1.5)))),
+            ("interlock", dict(lw=THIN, ls=(0, (5, 1.5, 1, 1.5))))]
+    for i, (d, k) in enumerate(keys):
+        x = 24 + (i % 3) * 66; y = yc - 1 - (i // 3) * 6.5
+        ax.plot([x, x + 12], [y, y], color="black", lw=k["lw"], ls=k.get("ls", "-"), solid_capstyle="butt", gid="keep", zorder=3)
+        if k.get("core"):
+            ax.plot([x, x + 12], [y, y], color="white", lw=UPS_BUS_CORE, solid_capstyle="butt", gid="keep", zorder=3.1)
+        text(ax, x + 15, y, d)
+    text(ax, 24, yc - 21.5, "Voltage level is also stated on every busbar tag; genset and BESS circuits use the LV weight.")
     rows = [["Drawing / sheet", "Title"],
             ["SLD-000", "Legend, drawing list, notes"],
             ["SLD-001 sh 1", "130/20 kV substation"],
@@ -120,11 +129,11 @@ def draw(outdir):
              "    (checked by scripts/check_drawings.py)."]
     lines_text(ax, 232, 152.0, notes, first_bold=True)
     # the one UPS compound symbol used on every sheet
-    text(ax, 24, 80.0, "UPS COMPOUND SYMBOL (all sheets)", fs=FS_TAG, weight="bold")
-    line(ax, [(40, 74), (40, 70)], c=UPS_C)
-    yb = ups(ax, 40, 70, side=1)
+    text(ax, 24, 72.0, "UPS COMPOUND SYMBOL (all sheets)", fs=FS_TAG, weight="bold")
+    line(ax, [(40, 66), (40, 62)], c=UPS_C)
+    yb = ups(ax, 40, 62, side=1)
     line(ax, [(40, yb), (40, yb - 4)], c=UPS_C)
-    lines_text(ax, 58, 68.0, ["rectifier ac/dc (top), inverter dc/ac (bottom),", "DC link with battery to the side;",
+    lines_text(ax, 58, 60.0, ["rectifier ac/dc (top), inverter dc/ac (bottom),", "DC link with battery to the side;",
                               "drawn the same for IT UPS and mechanical UPS."])
     save(fig, outdir, STEM)
 
