@@ -49,7 +49,7 @@ cd 03-shortcircuit-protection
 
 ## Limitations
 
-* Not validated in ETAP, PowerFactory or NEPLAN.
+* PowerFactory results for the same study cases are being prepared and will be added to this repository later.
 * LV device curves are generic.
 * Grid, cable, genset, UPS and earthing data are assumed.
 * No contribution from motors, VFDs or BESS.

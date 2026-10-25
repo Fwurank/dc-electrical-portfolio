@@ -163,7 +163,7 @@ The assumptions that drive the results most / 对结果影响最大的假设:
 ## 5. Limitations / 局限性
 
 * 中文：
-  1. 全部为概念级计算，未用 ETAP/PowerFactory/NEPLAN 正式验证（03 只用 pandapower 交叉验证）。
+  1. 全部为概念级计算；03 已用 pandapower 交叉验证，PowerFactory 结果正在整理，之后会上传。
   2. 厂家数据均为典型值，包括 LV 脱扣曲线、UPS/PCS 故障电流、母线槽 Icw、变压器损耗。
   3. 01 图纸为概念级：IEC 60617 符号已补齐，但图例未标注 IEC 60617 条目编号（未逐条核对数据库）；A3 字高已用程序测量，但尚未做实物打印测试。
   4. 02 未建模电机启动、谐波/K 系数，以及电缆间互热（分组系数以外）。
@@ -171,7 +171,7 @@ The assumptions that drive the results most / 对结果影响最大的假设:
   6. 04 的负荷、电价为合成曲线且假设完全预知，小时分辨率；未考虑市场深度、报价策略和聚合商费用；AI 负荷与电网限值为假设；Tier III/EN 50600 的结论为概念解读，非认证意见。
   7. 应用未部署；PDF 均为本机无头 Chrome 打印。
 * EN:
-  1. Concept-level work, with no commercial-tool validation.
+  1. Concept-level work. 03 is cross-checked with pandapower; PowerFactory results are being prepared and will be uploaded later.
   2. Generic vendor data throughout.
   3. The drawings are concept level. The legend does not show IEC 60617 item numbers, and no physical A3 print test has been done (text height is measured in software).
   4. 02 has no motor-starting or harmonics model.

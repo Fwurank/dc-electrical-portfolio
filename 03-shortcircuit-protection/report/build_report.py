@@ -161,7 +161,7 @@ Arc rating labels follow NFPA 70E categories (4/8/25/40 cal/cm²); IEC 61482-2 A
 {table(["#", "Item", "Phase 1–2", "Project 03", "Reason"], changes, "tiny")}
 <p class="small"><b>Ratings check.</b> {sum(1 for x in r['ratings'] if x['ok'])}/{len(r['ratings'])} pass; failures: {', '.join(f"{x['item']} {x['rating']} ({x['case'].split(' (')[0]})" for x in r['ratings'] if not x['ok'])}.
 MSB 65 kA/143 kA and 20 kV 25 kA ratings stand (full model 52.3 kA vs 53.8 kA hand value; 13.0 kA confirmed).</p>
-<p class="tiny2"><b>Limitations.</b> Not validated in ETAP / PowerFactory / NEPLAN; generic LV curves (no manufacturer selectivity/cascade tables); assumed grid, cable, genset,
+<p class="tiny2"><b>Limitations.</b> Generic LV curves (no manufacturer selectivity/cascade tables); assumed grid, cable, genset,
 UPS and earthing data; no motor/VFD/BESS fault contribution (BESS inverters ≈ 1.2 × I<sub>n</sub> would add &lt; 0.5 kA at 20 kV); IEEE 1584 not valid at 20 kV;
 touch voltage only screened (no soil model). Code: <code>scripts/make_all.py</code> regenerates all figures/results; 23 pytest tests.</p>
 <h3>Fig. 1 — Initial short-circuit current per bus and scenario vs equipment ratings (§3)</h3>
