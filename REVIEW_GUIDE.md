@@ -20,7 +20,8 @@ dc-electrical-portfolio/   (repository root; also the GitHub Pages site root: in
 ├── 01-design-basis-sld/             ← DB-001 Rev P2 + SLD-000…004 (8 A3 sheets)
 ├── 02-load-sizing/                  ← dcsizing + Streamlit app + CALC-002
 ├── 03-shortcircuit-protection/      ← scprot + CALC-003
-└── 04-bess/                         ← bessdc + Streamlit app + CALC-004
+├── 04-bess/                         ← bessdc + Streamlit app + CALC-004 (+ context/ FIG-004S storage layers, v0.1 draft)
+└── 05-next-gen-power/               ← research and concept study: NOTE-005 (800 VDC), SLD-005, CX-005 (commissioning), v0.1 drafts
 ```
 
 How the projects depend on each other / 依赖关系: 01 (numbers in the design basis) → 02 `dcsizing` → 03 `scprot` (imports 02's conductor tables) → 04 `bessdc` (imports 02's PUE bins and 03's relays and fault levels). Every project's rating changes feed `TODO_final_fixes.md` §B.
@@ -33,6 +34,7 @@ Suggested review order / 建议评审顺序: read each project's PDF report firs
 | 02 | Load calculation & equipment sizing | `02-load-sizing/report/DWU-DC-E-CALC-002_Load_and_Sizing_Calc.pdf` | `dcsizing/` (≈ 950 lines), `app.py` | 44 + 2 AppTest |
 | 03 | Short-circuit, protection, arc flash | `03-shortcircuit-protection/report/DWU-DC-E-CALC-003_ShortCircuit_Protection_ArcFlash.pdf` | `scprot/` (≈ 1 110 lines) | 23 |
 | 04 | BESS: peak shaving, backup, markets, AI | `04-bess/report/DWU-DC-E-CALC-004_BESS_Study.pdf` | `bessdc/` (≈ 990 lines), `app.py` | 21 + 2 AppTest |
+| 05 | Research and concept study: 800 VDC + commissioning (CONCEPT / DRAFT) | `05-next-gen-power/docs/05-800vdc-architecture-comparison-v0.1-2026-10-29-en.pdf`, `05-next-gen-power/drawings/SLD-005_800VDC_block_A_concept-v0.1-2026-10-29-en.pdf`, `05-next-gen-power/docs/05-commissioning-test-plan-concept-v0.1-2026-10-29-en.pdf` | `scripts/` (drawing and PDF builders) | none |
 
 ---
 
@@ -53,6 +55,9 @@ Suggested review order / 建议评审顺序: read each project's PDF report firs
 **04 BESS / 储能研究.**
 * 中文：10 MW / 20 MWh 储能接在 MSG-20 预留间隔，研究 (a) 40 MW 限值下的削峰与增加 IT 容量（LP）；(b) 备用电源角色的边界（Tier III、发电机额定类别、孤岛故障电流）；(c) FCR-N/FCR-D/mFRR/套利收益叠加，以及与削峰的兼容性；(d) AI 训练负荷功率波动平滑；(e) 商业案例与敏感性分析。
 * EN: Five studies in one package, plus a Streamlit tool. Main findings: the recharge peak already exceeds 40 MW; the BESS is energy-limited, adding only +0.84 MW of firm IT capacity; it cannot replace gensets; revenue depends on prices; AI ripple needs a response of about 10 ms or faster.
+
+**05 Next-generation power architecture and commissioning (research and concept study).**
+* EN: A research and concept study on the same fictional campus, not built or commissioned work. NOTE-005 compares 400 V AC + UPS, 400 VDC and 800 VDC for one 5 MW hall; SLD-005 redraws block A as an 800 VDC concept; CX-005 is an L0–L5 commissioning and test plan concept with genset and MV switchgear selection points. All ratings come unchanged from DB-001 Rev P2 and CALC-003/004. Statements carry credibility labels: [Verified], [Vendor claim], [Search-level], [Unverified] or [Inference].
 
 ---
 
@@ -135,7 +140,7 @@ What the tests cover / 测试内容:
 
 ## 4. Assumptions register / 假设登记
 
-The full list is in **`ASSUMPTIONS_REGISTER_ALL.csv`**: 188 rows, with columns project, group, name, value, tag, note and source. Regenerate it with `python tools/build_assumptions_register.py`. Per-project sources:
+The full list is in **`ASSUMPTIONS_REGISTER_ALL.csv`**: 188 rows from Projects 01–04 (Project 05 changes no rating and adds no rows; its documents list their own assumptions in the header), with columns project, group, name, value, tag, note and source. Regenerate it with `python tools/build_assumptions_register.py`. Per-project sources:
 完整清单见 CSV。各项目来源：01 = DB-001 Rev P2 第 3/8.1 节（假设）及第 8 节（Rev P2 额定值，标 PROJECT rating）；02 = `dcsizing/tables.py` 及代码中的 [ASSUMED] 标记；03 = `scprot/campus.py Data`、`earthing.py EarthingData`；04 = `bessdc/assumptions.py`（含来源与访问日期）。
 
 The assumptions that drive the results most / 对结果影响最大的假设:

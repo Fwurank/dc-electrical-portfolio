@@ -51,6 +51,7 @@ pytest -q                                # 23 tests incl. Streamlit AppTest
 * `app.py`: the Streamlit tool. `docs/screenshots/app_01..07_*.png` are the screenshots.
 * `figures/`: PNGs used in the report. `results/`: summary JSON, sizing grid, sweeps, cash flows, assumptions register, hourly profiles.
 * `report/`: report builder, HTML, PDF and page previews.
+* `context/`: FIG-004S storage layers vs time (SVG / PDF / PNG) and a 7-line context note, v0.1, CONCEPT / DRAFT. Its numbers are taken unchanged from DB-001 Rev P2 and CALC-004. Built by `../05-next-gen-power/scripts/fig04_storage_layers.py`.
 
 ## Limitations
 * Synthetic profiles and prices, with perfect foresight. The realisation factor of 0.85 is applied only in (e).
