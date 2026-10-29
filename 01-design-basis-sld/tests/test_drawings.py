@@ -35,7 +35,7 @@ def test_sheet_renders(tmp_path, modname, stem):
 def test_text_height_and_layout(tmp_path):
     out = tmp_path / "check.json"
     r = subprocess.run([sys.executable, os.path.join(SCRIPTS, "check_drawings.py"), "--json", str(out)],
-                       capture_output=True, text=True)
+                       capture_output=True, text=True, env={**os.environ, "SLD_CHECK_OUT": str(tmp_path)})
     assert r.returncode == 0, r.stdout + r.stderr
     rep = json.loads(out.read_text())
     assert len(rep["sheets"]) == len(SHEETS)

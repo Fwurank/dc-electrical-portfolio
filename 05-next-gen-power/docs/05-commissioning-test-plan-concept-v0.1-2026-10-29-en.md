@@ -28,7 +28,7 @@ There is no single standard that defines "L1–L5". Vendors and consultants use 
 
 - Each MSB has a load-bank connection, Q-LB 2 500 A (DB-001 §7.4, SLD-003).
 - At 400 V, 2 500 A is √3 × 0.4 kV × 2.5 kA ≈ 1.73 MVA. The IT genset is 2 750 kVA / 2 200 kWe. Through Q-LB alone, a genset can therefore be tested to about 1.73 MW at p.f. 1. That is 79 % of kWe and 63 % of kVA [Inference, arithmetic].
-- The N-1 design point of a block is 1.67 MW (DB-001), which is 96 % of what Q-LB can carry. The **block design load can be proven through Q-LB, but the genset's full rating cannot**.
+- The N-1 design point of a block is 1.67 MW (DB-001), which is 96 % of what Q-LB can carry. The **block design load can be proven through Q-LB, but the genset's full rating cannot**. The genset's own N-1 design load, including UPS losses and recharge, is ≈ 1.93 MW (CALC-002), which is also above Q-LB [Inference, arithmetic]. DB-001 §7.4 records this as an open point.
 - Options: a second load-bank point, a temporary connection on the genset side of Q-GI, or full-rating tests at the factory only (L1) [Inference]. I would raise this at L0.
 - White-space heat load for L5: 5 MW per hall ≈ 200 rack-mounted load banks at 25 kW, or AI-row units at 80–130 kW per rack position. They are fed through the normal busways and tap-offs so the real path is tested [Inference].
 - Cummins gives a rule of thumb that a genset should run above 30 % of its rating to limit wet stacking [Vendor claim, source 4]. That supports monthly testing on the load bank or on the building load rather than at no load.
@@ -58,7 +58,6 @@ All scenarios run with the hall at its stated heat load from load banks. Accepta
   - The same paper says Uptime accepts a manufacturer's certification of unlimited duration, including a site-specific rating letter [Vendor claim].
 - **ISO 8528-1 rating words** (ESP, PRP, COP, LTP and DCP from 2018) [Search-level, sources 4–5].
   - Cummins states that ISO **DCP** is "not appropriate" for Uptime Tier III/IV, because its definition references a reliable utility [Vendor claim].
-  - **Consistency point for the portfolio:** CALC-004 sheet 2 says "PRP/COP/DCP … are accepted — DB-001 uses DCP 2 750 kVA". DB-001 itself says **DCC**. I would align CALC-004 to "manufacturer's unlimited-hours rating (DCC), ISO COP; DCP needs case-by-case review" [Inference].
 - **Load steps.**
   - IT gensets see the UPS rectifier walk-in, not a hard step. Rectifier ramp time and the ISO 8528-5 performance class should be in the specification [Unverified].
   - Mechanical gensets are governed by the 400 kW chiller step ≤ 33 % (DB-001).
@@ -79,7 +78,7 @@ All scenarios run with the hall at its stated heat load from load banks. Accepta
   - The edition of IEC 62271-200 to cite is [Unverified].
 - **Insulating medium.**
   - **EU F-gas Regulation 2024/573 Art. 13(9)(a) prohibits putting into operation MV switchgear for primary and secondary distribution up to and including 24 kV that uses F-gases in its insulating or breaking medium from 1 January 2026** [Verified, EC FAQ, source 6]. Derogations exist, for example orders placed before 11 March 2024 and procurement-based exceptions.
-  - **Consistency point:** DB-001 says MSG-20 is "SF₆-free preferred". For a new campus this should read "F-gas-free required (EU 2024/573), unless a documented derogation applies" [Inference].
+  - On this basis DB-001 §7.2 requires MSG-20 to be SF₆-free; any derogation would have to be documented [Inference].
   - The 130 kV side falls in the > 52–145 kV band: only GWP < 1 from 1 January 2028 [Verified, source 6].
 - **Earthing system.** The 20 kV network is resonant earthed (Petersen coil ≥ 50 A plus a 10 A resistor), so feeder relays need admittance-based or transient 67N (DB-001). The specification should require the relay vendor's proof for compensated networks and a staged earth-fault test at L3/L5 [Inference].
 - **Arc protection.** Optical arc plus reverse-blocking busbar protection; MSG-20 incident energy falls from about 106 to 11 cal/cm² (DB-001 / CALC-003). Test light sensors and the trip path at L3.

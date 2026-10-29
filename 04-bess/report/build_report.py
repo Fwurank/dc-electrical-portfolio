@@ -85,8 +85,8 @@ Alternative levers without BESS: staggered UPS recharge (≤ 2.2 MW) and IT powe
 <h3>4. (b) Backup role — what a BESS can and cannot credibly replace</h3>
 {table(["Function", "Credible?", "Reason (concept level)"], can_rows, "tiny")}
 <p class="tiny2"><b>Tier III / EN 50600.</b> Uptime Institute Tier III treats on-site engine generation as the primary power source that must carry the design load with no runtime limit; EN 50600-2-2 Class 3/4 needs an
-independent secondary supply. A finite-energy battery does not satisfy this, so gensets stay N-rated per DR block. <b>Ratings</b> (ISO 8528-1): ESP (standby, limited hours) is not enough alone; PRP/COP/DCP
-(data-centre power, unlimited hours at variable load) are accepted — DB-001 uses DCP 2 750 kVA. <b>Start-up</b>: gensets reach load in ≈ 10–15 s (UPS bridges this); the BESS at 20 kV cannot reach the LV bus behind an open-transition ATS.</p>
+independent secondary supply. A finite-energy battery does not satisfy this, so gensets stay N-rated per DR block. <b>Ratings</b> (ISO 8528-1): ESP (standby, limited hours) is not enough alone; PRP/COP
+and data-centre ratings with unlimited hours at variable load are accepted — DB-001 uses 2 750 kVA / 2 200 kWe DCC (manufacturer's data-centre continuous rating). <b>Start-up</b>: gensets reach load in ≈ 10–15 s (UPS bridges this); the BESS at 20 kV cannot reach the LV bus behind an open-transition ATS.</p>
 <h3>Island fault clearing with the CALC-003 settings (BESS {f0(isl['i_mv_a'])} A at 20 kV = 1.2 × I<sub>n</sub> of 11 MVA)</h3>
 {table(["Device", "I fault (A)", "Pick-up (A)", "× pick-up", "t clear (s)", "≤ 1 s"], isl_rows, "small num")}
 <p class="tiny2">Grid-connected the BESS adds +{f2(isl['grid_contrib_ka'])} kA: MSG-20 {f1(isl['ik_msg20_grid_ka'])} → {f1(isl['ik_msg20_with_bess_ka'])} kA (worst abnormal {f1(isl['ik_msg20_worst_ka'])} → {f1(isl['ik_msg20_worst_with_bess_ka'])} kA vs 25 kA, 92 %).
@@ -166,7 +166,7 @@ def tb(n): return f"""<div class="tb">
 # ------------------------------------------------------------------ errata page (Rev P1a)
 pE = f"""
 <h2>Revision history and errata</h2>
-{table(["Rev", "Date", "Description"], [["P1", "2026-10-24", "First issue"], ["P1a", "2026-10-25", "Errata only: cross-references to DB-001 Rev P2 / SLD Rev P2; superseded statements listed below. No calculation result changed."]], "meta")}
+{table(["Rev", "Date", "Description"], [["P1", "2026-10-24", "First issue"], ["P1a", "2026-10-25", "Errata only: cross-references to DB-001 Rev P2 / SLD Rev P2; superseded statements listed below. No calculation result changed."], ["P1a, ed.", "2026-10-29", "Editorial: genset rating wording on sheet 2 aligned to DB-001 (2 750 kVA / 2 200 kWe DCC, previously \"DCP\"). No calculation result changed."]], "meta")}
 <div class="errata"><b>Note (Rev P1a, 2026-10-25).</b> Results are unchanged. Changes B22–B31 are implemented in <b>DB-001 Rev P2</b> §7.5–7.6 and the new
 drawing <b>SLD-004</b> (BESS plant), with bays Q19 / Q29 on SLD-001 sh 2. The I″<sub>k</sub> values here supersede the "no BESS contribution" limitation in CALC-003.</div>
 """

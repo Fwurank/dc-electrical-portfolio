@@ -205,6 +205,7 @@ The full list, with a status for every row, is in `TODO_final_fixes.md`. 完整�
     * confirmation of the assumed data
     * final arc-flash labels
     * DSO/Svk confirmation of export, FCR and market depth, and a vendor PCS fault curve
+    * load-bank feeder Q-LB 2 500 A (≈ 1.73 MVA) is below the full genset rating: upsize or state the limited test output (DB-001 §7.4, §11 item 9)
 
 ### 6.1 Errata in the calculation reports / 计算报告勘误
 
@@ -219,7 +220,8 @@ The calculation results are unchanged. Each report has a new last sheet, "Revisi
 * **CALC-003 (sheet 6):**
   * Superseded: "no BESS contribution". It is replaced by CALC-004: 13.3 / 23.1 kA, 92 % of 25 kA, PCS 1.2 × In, Ic +1 A.
   * B12–B21 are implemented.
-* **CALC-004 (sheet 5):** B22–B31 are implemented in DB §7.5–7.6 and SLD-004.
+* **CALC-004 (sheet 5):** B22–B31 are implemented in DB §7.5–7.6 and SLD-004. Editorial 2026-10-29: the genset rating on sheet 2 now reads DCC, as in DB-001.
+* **DB-001 (editorial 2026-10-29, Rev P2 kept):** MSG-20 SF₆-free is required (EU 2024/573), and the Q-LB load-bank limit is recorded as an open point. No rating changed.
 
 ## 7. Key results at a glance / 主要结果
 

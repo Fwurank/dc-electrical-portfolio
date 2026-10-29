@@ -22,6 +22,25 @@ subprocess.run([sys.executable, os.path.join(HERE, "check_drawings.py"), "--json
 import markdown
 md_text = open(os.path.join(DOCS, "01_Design_Basis.md"), encoding="utf-8").read()
 md_text = re.sub(r"^---\n.*?\n---\n", "", md_text, flags=re.S)
+# python-markdown needs a blank line before a list; without it "**Heading**\n* item" renders as one paragraph
+md_text = re.sub(r"(?m)^((?![ \t]*(?:[*-]|\d+\.) )(?!\|)\S.*)\n(?=(?:[*-]|\d+\.) )", r"\1\n\n", md_text)
+def _norm_indent(txt):
+    """Nested list items use 2-5 spaces in the .md; python-markdown needs 4 per level."""
+    out, stack = [], []          # original indents of the open list levels
+    for ln in txt.split("\n"):
+        m = re.match(r"^( *)(?:[*-]|\d+\.) ", ln)
+        if m:
+            n = len(m.group(1))
+            while stack and stack[-1] > n:
+                stack.pop()
+            if not stack or stack[-1] < n:
+                stack.append(n)
+            ln = " " * (4 * (len(stack) - 1)) + ln[n:]
+        elif ln.strip() and not ln.startswith(" "):
+            stack = []
+        out.append(ln)
+    return "\n".join(out)
+md_text = _norm_indent(md_text)
 html_body = markdown.markdown(md_text, extensions=["tables", "sane_lists"])
 imgs = ""
 for s in STEMS:

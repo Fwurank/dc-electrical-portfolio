@@ -18,6 +18,23 @@ def sscb(ax, x, y_top, tag, lines, lx=7.0):
     return y_top - 2 - L.SW_H
 
 
+
+def battery_stack(ax, x, y_top, c=L.INK, n=2):
+    """IEC 60617 S00898-style battery: n series cells, each a long thin plate (+) over a short thick plate (−),
+    joined by short leads. The '+' / '−' marks and equal plate widths keep it distinct from the earth symbol
+    (three bars of decreasing width). Returns y_bottom."""
+    y = y_top
+    L.line(ax, [(x, y), (x, y - 1.5)], c=c); y -= 1.5
+    for i in range(n):
+        L.line(ax, [(x - 3.6, y), (x + 3.6, y)], c=c, lw=L.LW)            # long plate, positive
+        L.line(ax, [(x - 1.7, y - 1.8), (x + 1.7, y - 1.8)], c=c, lw=L.LW + 1.8)  # short plate, negative
+        y -= 1.8
+        if i < n - 1:
+            L.line(ax, [(x, y), (x, y - 2.0)], c=c); y -= 2.0
+    L.text(ax, x - 4.6, y_top - 1.5, "+", ha="right", va="center")
+    L.text(ax, x - 4.6, y, "−", ha="right", va="center")
+    return y
+
 def main():
     fig, ax = L.new_sheet()
 
@@ -91,7 +108,7 @@ def main():
     yb = L.converter(ax, xE, yDC - 2 - L.SW_H - 1, "dc/dc", c=DC)
     L.line(ax, [(xE, yDC - 2 - L.SW_H), (xE, yDC - 3 - L.SW_H)], c=DC)
     L.line(ax, [(xE, yb), (xE, yb - 1)], c=DC)
-    L.battery(ax, xE, yb - 1, c=DC)
+    battery_stack(ax, xE, yb - 1, c=DC)
     L.lines_text(ax, xE + 6.5, yDC - 3, ["ESS-A", "DC/DC + LFP", "energy TBD", "(01: 2 × 165 kWh)"], first_bold=True)
 
     # midpoint earthing

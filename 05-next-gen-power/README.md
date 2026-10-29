@@ -19,7 +19,8 @@ The storage-layers figure FIG-004S for Project 04 is built by the same scripts a
 python scripts/sld005_800vdc_block.py        # drawings/SLD-005_*.svg/.pdf/.png
 python scripts/fig04_storage_layers.py       # ../04-bess/context/FIG-004S_*.svg/.pdf/.png
 python scripts/md2pdf.py docs/05-800vdc-architecture-comparison-v0.1-2026-10-29-en.md docs/05-800vdc-architecture-comparison-v0.1-2026-10-29-en.pdf a3l 7.6
-python scripts/md2pdf.py docs/05-commissioning-test-plan-concept-v0.1-2026-10-29-en.md docs/05-commissioning-test-plan-concept-v0.1-2026-10-29-en.pdf a4 9
+python scripts/md2pdf.py docs/05-commissioning-test-plan-concept-v0.1-2026-10-29-en.md docs/05-commissioning-test-plan-concept-v0.1-2026-10-29-en.pdf a4 9 \
+  "DWU-DC-E-CX-005 · v0.1 · 2026-10-29 · CONCEPT / DRAFT — requires review by a licensed electrical engineer"
 ```
 
 `scripts/sld_lib.py` is an unmodified copy of `../01-design-basis-sld/scripts/sld_lib.py`. The PDF prints need Google Chrome (headless).

@@ -1,4 +1,5 @@
-"""Markdown -> HTML -> PDF with headless Chrome. Usage: md2pdf.py in.md out.pdf [a4|a4l|a3l] [font_pt]"""
+"""Markdown -> HTML -> PDF with headless Chrome. Usage: md2pdf.py in.md out.pdf [a4|a4l|a3l] [font_pt] [footer text]
+With a footer text, the PDF is printed through Playwright with that text and "page N of M" on every page."""
 import sys, subprocess, markdown, pathlib, tempfile
 src, out = sys.argv[1], sys.argv[2]
 size = {"a4": "A4", "a4l": "A4 landscape", "a3l": "A3 landscape"}[sys.argv[3] if len(sys.argv) > 3 else "a4"]
@@ -18,10 +19,23 @@ th {{ background: #e8e8e8; }} tr {{ page-break-inside: avoid; }}
 p, li {{ margin: 2px 0; }} ul, ol {{ margin: 2px 0 2px 18px; padding: 0; }}
 code {{ font-size: 0.95em; }}"""
 # keep a heading with a short following block (Chrome ignores break-after: avoid)
-body = re.sub(r"(<h2>.*?</h2>\s*<(p|ol)>.*?</\2>)", lambda m: f'<div style="break-inside: avoid">{m.group(1)}</div>' if len(m.group(1)) < 2500 else m.group(1), body, flags=re.S)
+body = re.sub(r"(<h2>(?:(?!</h2>).)*</h2>\s*<(p|ol)>.*?</\2>)", lambda m: f'<div style="break-inside: avoid">{m.group(1)}</div>' if len(m.group(1)) < 2500 else m.group(1), body, flags=re.S)
 html = f"<!doctype html><html><head><meta charset='utf-8'><style>{css}</style></head><body>{body}</body></html>"
 with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False) as f:
     f.write(html); h = f.name
-subprocess.run(["google-chrome", "--headless", "--no-sandbox", "--disable-gpu", "--no-pdf-header-footer",
-                f"--print-to-pdf={out}", h], check=True, capture_output=True)
+footer = sys.argv[5] if len(sys.argv) > 5 else ""
+if footer:
+    from playwright.sync_api import sync_playwright
+    ft = ("<div style='width:100%; font-family: DejaVu Sans, sans-serif; font-size:7pt; color:#000; padding:0 10mm; "
+          "display:flex; justify-content:space-between'><span>" + footer + "</span>"
+          "<span>Page <span class='pageNumber'></span> of <span class='totalPages'></span></span></div>")
+    with sync_playwright() as p:
+        b = p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox"])
+        pg = b.new_page(); pg.goto(pathlib.Path(h).as_uri()); pg.wait_for_load_state("networkidle")
+        pg.pdf(path=out, prefer_css_page_size=True, display_header_footer=True,
+               header_template="<span></span>", footer_template=ft)
+        b.close()
+else:
+    subprocess.run(["google-chrome", "--headless", "--no-sandbox", "--disable-gpu", "--no-pdf-header-footer",
+                    f"--print-to-pdf={out}", h], check=True, capture_output=True)
 print(out)

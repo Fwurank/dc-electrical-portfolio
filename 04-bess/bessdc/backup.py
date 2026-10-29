@@ -116,7 +116,7 @@ GENSET_RATINGS = [
     ("PRP – Prime", "Unlimited hours, variable load, avg ≤ 70 %, 10 % overload 1 h in 12 h", "Accepted"),
     ("COP – Continuous", "Unlimited hours at constant 100 % load", "Accepted (conservative)"),
     ("DCP – Data-centre power (ISO 8528-1:2018)", "Unlimited hours at varying load with grid as primary",
-     "Intended for data centres; used in DB-001 (2750 kVA)"),
+     "Intended for data centres. DB-001 uses 2 750 kVA / 2 200 kWe DCC (manufacturer's data-centre continuous rating)"),
 ]
 
 FIRE_SAFETY = [

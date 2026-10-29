@@ -11,7 +11,7 @@
 Labels: [Verified: opened source] · [Vendor claim] · [Search-level] · [Unverified] · [Inference]. Retrieval date: 2026-10-29.
 
 **Context (for the Project 04 page)**
-1. Each layer covers one time band. Rack capacitors ride through up to 20 ms, the UPS covers 5–8 min, the campus BESS 27 min, and the gensets 24 h of fuel. Sources: OCP Mt. Diablo v1.0.0 [Verified (KB 2026-10-26)]; DB-001 P2; CALC-004.
+1. Each layer covers one time band. Rack capacitors ride through up to 20 ms, the UPS covers 5 to 8.1 min (rated load at end of life; N-1 load), the campus BESS 27 min, and the gensets 24 h of fuel. Sources: OCP Mt. Diablo v1.0.0 [Verified (KB 2026-10-26)]; DB-001 P2; CALC-004.
 2. The 10 MW / 20 MWh BESS works in the band from 150 ms to hours. It is not counted in redundancy and does not replace the UPS or the gensets (CALC-004 §4).
 3. AI-training ripple at 0.1–2 Hz needs a response of about 10 ms or faster. A 150 ms BESS still leaves 5.6 MW peak-to-peak, so the fast band needs capacitors or a supercap. A 23 kWh supercap per 10 MW brings it down to 0.79 MW (CALC-004 model).
 4. The 3 MW/min ramp limit (A) is a power problem, not an energy one: about 11.4 MW but only 0.46 MWh (CALC-004).

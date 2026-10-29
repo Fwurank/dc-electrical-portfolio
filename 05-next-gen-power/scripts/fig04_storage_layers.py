@@ -29,7 +29,7 @@ def main():
         (5e-3, 30, "Supercap hybrid at 20 kV", ["23 kWh per 10 MW, < 10 ms: AI ripple 5.6 → 0.79 MW p-p (CALC-004) [Inference, model]"]),
         (0.02, 90, "Rack BBU", ["45–90 s at 100 % load (OCP spec) [Verified] · not in the Project 01 base design"]),
         (1e-3, 486, "Static UPS, LFP, per block", ["VFI online · 2 × 165 kWh: 5 min at Pr EoL, 8.1 min in N-1 (DB-001 P2)"]),
-        (0.15, 7200, "Campus BESS 10 MW / 20 MWh", ["100–300 ms · 27 min at campus peak · not counted in redundancy (CALC-004)"]),
+        (0.15, 7200, "Campus BESS 10 MW / 20 MWh", ["response ≈ 150 ms · 27 min at campus peak · not counted in redundancy (CALC-004)"]),
         (12, 86400, "Gensets, 1 per block, HVO100", ["on load ≈ 10–15 s (CALC-004) · 24 h fuel on site (DB-001 P2)"]),
     ]
     y = 255

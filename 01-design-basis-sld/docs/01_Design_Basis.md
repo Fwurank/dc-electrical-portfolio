@@ -22,6 +22,7 @@ title: "Design Basis — 30 MW IT Hyperscale Data Center Campus, Sweden (fiction
 |---|---|---|---|
 | P1 | 2026-10-24 | First issue for the concept: design basis, first-pass ratings, SLD-001…003 | D. Wu |
 | **P2** | 2026-10-25 | Incorporates every rating change from CALC-002/003/004 (TODO_final_fixes §B rows 1–31). Redrawn SLD set: legend sheet, sheets split for ≥ 2.5 mm text on A3, IEC 60617 symbols for CT, VT, surge arrester, earthing switch, relays, meters and arc sensors, and a new BESS sheet SLD-004. Changes are listed in §12 | D. Wu |
+| P2, ed. 2026-10-29 | 2026-10-29 | Editorial, no rating changed: MSG-20 SF₆-free changed from "preferred" to "required" (EU 2024/573, §7.2); load-bank feeder Q-LB limit recorded as an open point (§7.4, §11 item 9, TODO C) | D. Wu |
 
 ---
 
@@ -180,7 +181,7 @@ Detection uses admittance or transient directional earth-fault protection [67N/5
   * the transformer LV terminals and at every 20 kV cable termination
 
 **MSG-20 switchgear**
-* 24 kV, 2 500 A, **25 kA / 3 s, Ip 62.5 kA**, IEC 62271-200, LSC2B-PM, IAC AFLR 25 kA 1 s, preferably SF₆-free.
+* 24 kV, 2 500 A, **25 kA / 3 s, Ip 62.5 kA**, IEC 62271-200, LSC2B-PM, IAC AFLR 25 kA 1 s, SF₆-free required (EU F-gas Regulation 2024/573 Art. 13(9)(a) for new MV switchgear up to 24 kV put into operation from 1 Jan 2026) [assumed applicable, to be confirmed against the regulation text].
 * Two sections with a normally-open coupler.
 
 **Short-circuit levels [C3]**
@@ -287,6 +288,7 @@ Detection uses admittance or transient directional earth-fault protection [67N/5
 **Bypass and testing**
 * **Centralised static bypass (SBS)** and an **external wrap-around maintenance bypass (MBB)**. The MBB is key-interlocked with the UPS output breaker.
 * Each MSB has a **load-bank connection** for commissioning and periodic genset testing.
+* **Load-bank feeder Q-LB: 2 500 A (SLD-003 sh. 1), rating unchanged; open point (TODO C).** At 400 V it carries √3 × 0.4 kV × 2.5 kA ≈ 1.73 MVA, i.e. ≈ 1.73 MW with a resistive load bank. This is sized for the N-1 block IT load of 1.67 MW (§6.2). It is not enough for the IT genset's N-1 design load of ≈ 1.93 MW (CALC-002) or its full 2 750 kVA / 2 200 kWe DCC rating, so a genset test through Q-LB is limited to ≈ 1.73 MW (≈ 79 % of 2 200 kWe). Options for the design review: (a) upsize Q-LB to 4 000 A (≈ 2.77 MVA, matches the genset ACB and covers 2 750 kVA), or (b) keep 2 500 A and state the limited site-test output, with the full-rating test at the genset factory acceptance test.
 
 ### 7.5 Battery energy storage (sheet SLD-004) [C4]
 
@@ -447,6 +449,7 @@ Synchronous AI training can swing a hall by several MW within seconds.
 6. A **harmonic and reactive-power study** of the UPS rectifiers, VFDs and BESS PCS, to IEC 61000-3-12, IEC/TR 61000-3-6 and the DSO limits. Long 20 kV cables at light load generate capacitive reactive power. The BESS PCS can absorb it.
 7. Rack density growth (AI/liquid cooling) can raise hall IT load above 5 MW. The block approach allows a 5th block per hall if the space is reserved.
 8. Heat recovery to district heating (heat pumps ≈ 2–4 MW extra electrical load) is not included in the base load. It would also count against the 40 MW subscription.
+9. **Load-bank feeder Q-LB** (§7.4): 2 500 A ≈ 1.73 MVA proves the 1.67 MW N-1 block IT load but not the full genset rating. Decide between upsizing to 4 000 A and a stated limited site-test output. This is **open** (TODO C).
 
 ## 12. Changes in Rev P2 (traceability to TODO_final_fixes.md)
 

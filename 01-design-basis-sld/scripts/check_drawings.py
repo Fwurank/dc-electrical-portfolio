@@ -15,7 +15,8 @@ sys.path.insert(0, HERE)
 import sld_lib
 from sheets import SHEETS
 DWG_MIN = 3.5   # drawing number cap height, mm: ISO 3098 standard height 3.5 (title block is one uniform 180 mm rectangle)
-DWG = os.path.join(os.path.dirname(HERE), "drawings")
+# SLD_CHECK_OUT lets the test suite re-draw into a temp folder instead of overwriting drawings/
+DWG = os.environ.get("SLD_CHECK_OUT") or os.path.join(os.path.dirname(HERE), "drawings")
 
 
 def cap_ratio():
