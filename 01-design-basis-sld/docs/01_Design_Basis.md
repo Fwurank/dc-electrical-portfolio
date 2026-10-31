@@ -33,9 +33,9 @@ This document fixes the design inputs for the electrical concept of a 30 MW (IT)
 | Project | Content | Uses from this basis |
 |---|---|---|
 | 01 (this) | Design basis + concept single-line diagrams | — |
-| 02 | Load calculation & equipment sizing tool (Python/Streamlit), CALC-002 | Load model §5, ratings §8 |
-| 03 | IEC 60909 short-circuit, protection coordination & arc flash, CALC-003 | Network data §7–8, Table 8.1 |
-| 04 | BESS: peak shaving, backup role, markets, AI-load smoothing, CALC-004 | Grid data §3, 20 kV BESS bays §7.5 |
+| 03 | Load calculation & equipment sizing tool (Python/Streamlit), CALC-002 | Load model §5, ratings §8 |
+| 04 | IEC 60909 short-circuit, protection coordination & arc flash, CALC-003 | Network data §7–8, Table 8.1 |
+| 05 | BESS: peak shaving, backup role, markets, AI-load smoothing, CALC-004 | Grid data §3, 20 kV BESS bays §7.5 |
 
 Out of scope at this stage:
 * detailed mechanical design and physical layout (beyond the BESS spacing rule in §7.5)

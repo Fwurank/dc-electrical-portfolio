@@ -34,156 +34,156 @@ project,group,name,value,tag,note,source
 01,8.1 Network data,T-A … T-D,"2.5 MVA, 20/0.42 kV, uk = 6 %, P_k ≈ 19 kW, Dyn11",ASSUMED (A),,01-design-basis-sld/docs/01_Design_Basis.md
 01,8.1 Network data,IT genset,"2 750 kVA, x″d ≈ 15 %, x′d ≈ 22 %, R/X ≈ 0.15",ASSUMED (A),,01-design-basis-sld/docs/01_Design_Basis.md
 01,8.1 Network data,BESS PCS,"2 × 5 MW, fault current 1.2 × In (A, generic), response ≈ 150 ms (A)",ASSUMED (A),,01-design-basis-sld/docs/01_Design_Basis.md
-02,cables.py,line 78,,ASSUMED,termination limit for LV ACB/MCCB terminals) [ASSUMED practice].,02-load-sizing/dcsizing/cables.py:78
-02,cables.py,line 90,,ASSUMED,if n > 1 and s < 50: # parallel cables only for large sections (practice) [ASSUMED],02-load-sizing/dcsizing/cables.py:90
-02,generator.py,line 8,,ASSUMED,"""""""Site power derating vs. the manufacturer site rating (40 °C / 1000 m) [ASSUMED slopes;",02-load-sizing/dcsizing/generator.py:8
-02,generator.py,line 19,,ASSUMED,max_loading 90 % of DCC (ISO 8528-1 data-center continuous) is a design-margin policy [ASSUMED].,02-load-sizing/dcsizing/generator.py:19
-02,generator.py,line 21,,ASSUMED,"turbo-charged engine first-step capability, [ASSUMED] 33 %).""""""",02-load-sizing/dcsizing/generator.py:21
-02,generator.py,line 37,,ASSUMED,"ΔU ≈ x'd·s / (1 + x'd·s), s = step/rating). [ASSUMED simplification; vendor transient",02-load-sizing/dcsizing/generator.py:37
-02,generator.py,line 64,,ASSUMED,"volume and the ≥ 10 % reserve [ASSUMED].""""""",02-load-sizing/dcsizing/generator.py:64
-02,load.py,line 17,,ASSUMED,t_peak_c (trim chillers); linear extrapolation above. [ASSUMED model],02-load-sizing/dcsizing/load.py:17
-02,load.py,line 54,,ASSUMED,dist_loss_frac: transformer + LV distribution losses as fraction of (IT + UPS loss + mech) [ASSUMED].,02-load-sizing/dcsizing/load.py:54
-02,scenario.py,line 190,,ASSUMED,"i_feeder <= PHASE1[""mv_feeder_a_capacity""], ""3×1×240 Al 24 kV, in ground ≈ 390 A [ASSUMED]"")",02-load-sizing/dcsizing/scenario.py:190
-02,tables.py,line 5,,ASSUMED,"[ASSUMED] engineering assumption / typical vendor value, NOT a standard table value",02-load-sizing/dcsizing/tables.py:5
-02,tables.py,line 49,,ASSUMED,# touching (simplified to one tray; values beyond 3 circuits extrapolated) [STD 1–3; ASSUMED ≥4],02-load-sizing/dcsizing/tables.py:49
-02,tables.py,line 58,,ASSUMED,"# Project design limits (tighter, ASSUMED): 1 % transformer→MSB, 2 % sub-main, 3 % final circuit.",02-load-sizing/dcsizing/tables.py:58
-02,tables.py,line 68,,ASSUMED,# [ASSUMED] typical values in the order of EU Ecodesign Reg. 548/2014 / 2019/1783 Tier 2 maxima.,02-load-sizing/dcsizing/tables.py:68
-02,tables.py,line 72,,ASSUMED,"# 63 MVA 130/21 kV ONAF oil transformer, P0 / Pk at rated power, kW [ASSUMED]",02-load-sizing/dcsizing/tables.py:72
-02,tables.py,line 76,,ASSUMED,"# Common diesel genset ratings at 400 V, kVA (pf 0.8 → kWe = 0.8 kVA) [ASSUMED, market-typical]",02-load-sizing/dcsizing/tables.py:76
-02,tables.py,line 78,,ASSUMED,"# Site derating (typical manufacturer curves, relative to 40 °C / 1000 m site rating) [ASSUMED]",02-load-sizing/dcsizing/tables.py:78
-02,tables.py,line 81,,ASSUMED,# scaled by volumetric energy ratio HVO/EN 590 ≈ 1.05. [ASSUMED],02-load-sizing/dcsizing/tables.py:81
-02,tables.py,line 83,,ASSUMED,# ISO 8528-5 performance class G3 transient voltage deviation limit (approx. reading) [ASSUMED],02-load-sizing/dcsizing/tables.py:83
-02,tables.py,line 86,,ASSUMED,GEN_MAX_STEP_FRAC = 0.33 # [ASSUMED],02-load-sizing/dcsizing/tables.py:86
-02,tables.py,line 89,,ASSUMED,"# Modular double-conversion UPS efficiency (VFI mode, IEC 62040-3 Annex I test), vs load fraction [ASSUMED]",02-load-sizing/dcsizing/tables.py:89
-02,tables.py,line 92,,ASSUMED,"# LFP capacity vs. cell temperature (relative to 25 °C) [ASSUMED, typical datasheet]",02-load-sizing/dcsizing/tables.py:92
-02,tables.py,line 94,,ASSUMED,"LFP_DEFAULTS = {""eol"": 0.80, # end-of-life capacity (fraction of nameplate) [ASSUMED]",02-load-sizing/dcsizing/tables.py:94
-02,tables.py,line 95,,ASSUMED,"""dod"": 0.90, # usable depth of discharge [ASSUMED]",02-load-sizing/dcsizing/tables.py:95
-02,tables.py,line 96,,ASSUMED,"""eta_dc"": 0.97, # inverter DC→AC efficiency incl. DC path [ASSUMED]",02-load-sizing/dcsizing/tables.py:96
-02,tables.py,line 97,,ASSUMED,"""c_max"": 8.0} # max discharge C-rate (P_dc / E_eol), high-rate UPS LFP [ASSUMED]",02-load-sizing/dcsizing/tables.py:97
-02,tables.py,line 101,,ASSUMED,# IEC 61439-6: rated current at 35 °C 24-h average ambient. Derating above that [ASSUMED vendor-typical],02-load-sizing/dcsizing/tables.py:101
-02,tables.py,line 103,,ASSUMED,"# Cu busway impedance per phase, mOhm/m (R at operating temp, X) [ASSUMED vendor-typical]",02-load-sizing/dcsizing/tables.py:103
-02,tables.py,line 107,,ASSUMED,"# Rated short-time withstand Icw (1 s), kA [ASSUMED vendor-typical]",02-load-sizing/dcsizing/tables.py:107
-02,tables.py,line 113,,ASSUMED,"# [ASSUMED, shaped after public SMHI climate normals for central Sweden; sums to 8760 h]",02-load-sizing/dcsizing/tables.py:113
-02,transformer.py,line 11,,ASSUMED,Limits are design policy [ASSUMED]: ≤ 100 % of AN rating in failure mode (fans give extra,02-load-sizing/dcsizing/transformer.py:11
-02,ups.py,line 13,,ASSUMED,"""""""Number of parallel modules so that the failure-mode load ≤ max_loading × P_r [ASSUMED policy].""""""",02-load-sizing/dcsizing/ups.py:13
-03,campus.Data,sk_max_mva,3000.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,sk_min_mva,1500.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,grid_r_x,0.1,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,hv_sr_mva,63.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,hv_ur_hv,130.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,hv_ur_lv,21.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,hv_uk,0.12,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,hv_pk_kw,250.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,feeder_km,0.6,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,feeder_r20,0.125,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,feeder_x,0.11,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,tx_cable_km,0.15,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,tx_cable_r20,0.32,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,tx_cable_x,0.13,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,bt_sr_mva,2.5,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,bt_ur_hv,20.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,bt_ur_lv,0.42,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,bt_uk,0.06,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,bt_pk_kw,19.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,gen_sr_mva,2.75,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,gen_ur_kv,0.4,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,gen_xd2,0.15,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,gen_xd1,0.22,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,gen_x0,0.08,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,tx_msb_busduct_m,10.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,gen_msb_busduct_m,40.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,msb_sbs_busduct_m,25.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,sbs_z_mohm,(0.05+0.02j),ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,uosb_feeder_m,30.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,uosb_feeder_size,185,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,uosb_feeder_par,2,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,busway_a,800,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,busway_m,60.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,rack_cable_m,8.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,rack_cable_size,16,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,ups_kw,2000.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,ups_ik_pu,2.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,campus.Data,theta_e_c,80.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/campus.py
-03,earthing.EarthingData,un_kv,20.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,c240_uf_km,0.32,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,c95_uf_km,0.22,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,feeders_per_section,6,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,feeder_km,0.6,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,tx_per_section,18,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,tx_cable_km,0.15,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,other_ic_a,3.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,detuning,0.1,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,loss_pct,2.5,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,ir_par_a,10.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,ner_a,500.0,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,re_ohm,0.2,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,earthing.EarthingData,r_factor,0.6,ASSUMED (DB-001 §8.1 / CALC-002),,03-shortcircuit-protection/scprot/earthing.py
-03,campus.py,line 50,,ASSUMED,"sbs_z_mohm: complex = complex(0.05, 0.02) # static switch + MBB/UOSB busbars [ASSUMED]",03-shortcircuit-protection/scprot/campus.py:50
-03,campus.py,line 60,,ASSUMED,"ups_ik_pu: float = 2.0 # inverter current limit, × rated, ≈ 100 ms [ASSUMED]",03-shortcircuit-protection/scprot/campus.py:60
-03,campus.py,line 76,,ASSUMED,r20 = r_op / (1 + 0.00393 * (90 - 20)) * 1.0 # back to 20 °C [ASSUMED operating 90 °C basis],03-shortcircuit-protection/scprot/campus.py:76
-03,campus.py,line 200,,ASSUMED,"busway PE = enclosure, Z_PE ≈ Z_L [ASSUMED]).""""""",03-shortcircuit-protection/scprot/campus.py:200
-03,earthing.py,line 3,,ASSUMED,"earth resistance and reduction factor are [ASSUMED] typical values.""""""",03-shortcircuit-protection/scprot/earthing.py:3
-03,earthing.py,line 26,,ASSUMED,"c240_uf_km: float = 0.32 # 12/20 kV XLPE 1×240 Al, per phase [ASSUMED]",03-shortcircuit-protection/scprot/earthing.py:26
-03,earthing.py,line 27,,ASSUMED,c95_uf_km: float = 0.22 # 12/20 kV XLPE 1×95 Al [ASSUMED],03-shortcircuit-protection/scprot/earthing.py:27
-03,earthing.py,line 32,,ASSUMED,"other_ic_a: float = 3.0 # switchgear, BESS/aux cables, transformer windings [ASSUMED]",03-shortcircuit-protection/scprot/earthing.py:32
-03,earthing.py,line 37,,ASSUMED,re_ohm: float = 0.2 # campus global earthing system resistance [ASSUMED],03-shortcircuit-protection/scprot/earthing.py:37
-03,earthing.py,line 38,,ASSUMED,r_factor: float = 0.6 # reduction factor (cable screens carry part of the return current) [ASSUMED],03-shortcircuit-protection/scprot/earthing.py:38
-03,earthing.py,line 77,,ASSUMED,"the current). Ik1 and r are [ASSUMED] pending DSO data — this case normally governs the earthing design.""""""",03-shortcircuit-protection/scprot/earthing.py:77
-03,iec60909.py,line 229,,ASSUMED,"(classic two-time-constant model). All values per unit of IrG. [ASSUMED vendor-typical]""""""",03-shortcircuit-protection/scprot/iec60909.py:229
-03,protection.py,line 14,,ASSUMED,BREAKER_MV_S = 0.06 # VCB opening + arcing [ASSUMED],03-shortcircuit-protection/scprot/protection.py:14
-03,protection.py,line 183,,ASSUMED,"ith_multiple: float = 100.0 # CT short-time thermal rating, × Ipn for 1 s [ASSUMED]",03-shortcircuit-protection/scprot/protection.py:183
-03,study.py,line 154,,ASSUMED,"add(""Rack PDU inlet"", ""Icc 10 kA [ASSUMED typ.]"", 10, ""S0 normal"", g(""S0max"", ""RACK""),",03-shortcircuit-protection/scprot/study.py:154
-04,Site,grid_limit_mw,40.0,PROJECT,Subscribed import capacity (abonnerad effekt),"DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
-04,Site,it_nameplate_mw,30.0,PROJECT,"IT nameplate, 6 halls × 5 MW","DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
-04,Site,design_peak_mw,37.818,PROJECT,"Campus demand at 100 % IT, +32 °C (dcsizing)","DWU-DC-E-CALC-002 (project 02, dcsizing): design peak 37.8 MW, 42.6 MW incl. UPS recharge"
-04,Site,recharge_mw,4.8,PROJECT,UPS battery recharge allowance 10 % of 48 MW UPS (non-coincident),"DWU-DC-E-CALC-002 (project 02, dcsizing): design peak 37.8 MW, 42.6 MW incl. UPS recharge"
-04,Site,recharge_h,1.5,ASSUMED,"Recharge at full rate after a full discharge, then 1 h taper",
-04,Site,u_mean,0.8,ASSUMED,"Design-year mean IT utilisation (AI-heavy, > DB 75 %)",
-04,Site,u_diurnal,0.06,ASSUMED,Diurnal utilisation amplitude (peak 14–20 h),
-04,Site,u_noise,0.02,ASSUMED,Hourly AR(1) utilisation noise σ,
-04,Site,heatwave_c,32.0,PROJECT,"Extreme design ambient (heat-wave peak, 5 days in July)","DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
-04,Site,seed,2026,ASSUMED,Random seed of all synthetic profiles,
-04,Bess,p_mw,10.0,PROJECT,"PCS power at the 20 kV bay(s), 2 × 5 MW (one per MSG-20 section)","DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
-04,Bess,e_mwh,20.0,PROJECT,Nameplate energy at BoL (2 h); usable = SOC window × nameplate,"DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
-04,Bess,soc_min,0.05,ASSUMED,Usable SOC window lower bound (of nameplate),
-04,Bess,soc_max,0.95,ASSUMED,Usable SOC window upper bound,
-04,Bess,eta_rt,0.88,ASSUMED,AC round-trip efficiency incl. PCS + MV transformer (LFP),
-04,Bess,availability,0.97,ASSUMED,Commercial availability,
-04,Bess,cal_fade,0.01,ASSUMED,"Calendar fade per year (LFP, ~25 °C)",
-04,Bess,cycle_life,6000.0,ASSUMED,Equivalent full cycles to 80 % SOH,
-04,Bess,deg_cost_eur_mwh,15.0,ASSUMED,Throughput degradation cost (DC block cost / cycle life),
-04,Bess,response_ms,150.0,ASSUMED,PCS full-power step response (grid-following); 20–50 ms grid-forming,
-04,Bess,fault_pu,1.2,ASSUMED,PCS fault-current limit (per unit of rated current),
-04,Bess,s_mva,11.0,ASSUMED,PCS apparent power (Q for p.f. ≥ 0.95 at the connection point),
-04,Prices,scenario,2026,PUBLIC,"Price year: '2025', '2026' (Jan–Aug) or 'saturated' (0.5 × 2026, ASSUMED)","Flexnavet wiki, 'Nordic battery revenue trends 2023–2026' — annual means of Svk Mimer reserve prices (2026 = Jan–Aug); secondary source"
-04,Prices,spot_mean,46.23,PUBLIC,"SE3 day-ahead annual mean 2025, EUR/MWh (synthetic hourly shape around it)","Nord Pool, day-ahead prices, yearly aggregate SE3 (2025 = 46.23 EUR/MWh; 2026 YTD = 70.70 EUR/MWh)"
-04,Prices,spot_daily_spread,0.25,ASSUMED,Synthetic diurnal price amplitude (fraction of mean),
-04,Prices,neg_share,0.04,ASSUMED,Share of hours ≤ 0 EUR/MWh (≈ 3.9 % SE3 2025 per worldpowermonitor),
-04,Prices,grid_energy_fee,1.5,PUBLIC,Regional-grid transfer fee ≈ 1.7 öre/kWh (L1 Södra) → ≈ 1.5 EUR/MWh,"Vattenfall Eldistribution, Prisblad regionnät 2026 (Södra Sverige, tariff L1: årseffektavgift 207 SEK/kW, högbelastningsavgift 35 SEK/kW, överföring 1.7 öre/kWh)"
-04,Prices,sek_per_eur,11.0,ASSUMED,Exchange rate SEK/EUR,
-04,Prices,usd_per_eur,1.13,ASSUMED,Exchange rate USD/EUR,
-04,Prices,subscription_sek_kw,242.0,PUBLIC,Årseffektavgift 207 + högbelastning 35 SEK/kW·yr (L1 Södra 2026),"Vattenfall Eldistribution, Prisblad regionnät 2026 (Södra Sverige, tariff L1: årseffektavgift 207 SEK/kW, högbelastningsavgift 35 SEK/kW, överföring 1.7 öre/kWh)"
-04,Prices,realisation,0.85,ASSUMED,"Perfect-foresight LP → real bidding (forecast error, bid granularity, aggregator fee)",
-04,Prices,fcrn_act_share,0.1,ASSUMED,FCR-N mean activation (|ΔP|/reserved) → throughput losses,
-04,Finance,c_energy_eur_kwh,120.0,ASSUMED,Energy-related turnkey cost; with c_power gives 157 €/kWh at 2 h ≈ BNEF Europe 2025 177 USD/kWh,"BNEF Energy Storage System Cost Survey 2025 as reported by Energy-Storage.News 2025-12-16 (turnkey Europe 177 USD/kWh, global 117 USD/kWh)"
-04,Finance,c_power_eur_kw,75.0,ASSUMED,"Power-related turnkey cost (PCS, MV skid)",
-04,Finance,bop_frac,0.2,ASSUMED,"Grid connection, civil, fire protection, owner's costs (fraction of turnkey)",
-04,Finance,bay_eur,300000.0,ASSUMED,Two 20 kV bay fit-outs incl. protection & metering (bays reserved in DB),
-04,Finance,opex_frac,0.02,ASSUMED,"O&M + insurance + EMS/optimiser fee, fraction of CAPEX per year",
-04,Finance,wacc,0.07,ASSUMED,Nominal WACC,
-04,Finance,life_y,15,ASSUMED,Economic life (years),
-04,Finance,price_trend,-0.03,ASSUMED,Annual ancillary-price trend (saturation; SVK-BMO-2030 shows decreasing prices),
-04,Finance,soh_floor,0.8,ASSUMED,Augment energy whenever SOH would fall below this,
-04,Finance,aug_cost_trend,-0.04,ASSUMED,Annual change of cell/augmentation cost,
-04,Finance,it_value_keur_mw,0.0,ASSUMED,"Value of enabled IT capacity, k€/MW-IT·yr (0 = conservative base case)",
-04,AiSwing,p_ai_mw,12.0,ASSUMED,"AI training cluster at the grid (IT × PUE), synchronous job, ≈ 2 halls",
-04,AiSwing,p_base_mw,24.0,ASSUMED,Rest of campus (steady),
-04,AiSwing,duty_low,0.35,ASSUMED,Communication-phase power (pu of AI peak),
-04,AiSwing,period_s,6.0,ASSUMED,Training-iteration period (compute + all-reduce),
-04,AiSwing,ckpt_every_s,900.0,ASSUMED,Checkpoint interval,
-04,AiSwing,ckpt_len_s,45.0,ASSUMED,Checkpoint duration at ~20 % power,
-04,AiSwing,ramp_mw_min,3.0,ASSUMED,Grid-code-style ramp limit at the connection point (10 % of 30 MW per minute),
-04,AiSwing,osc_band_mw,1.0,ASSUMED,Max. residual peak-to-peak swing in 0.1–2 Hz band (≈ 2.5 % of 40 MW; forced-oscillation limit),
-04,AiSwing,rise_s,0.5,ASSUMED,"Facility-level 10–90 % rise time of AI power steps (many GPUs, PSU/UPS DC links)",
-04,AiSwing,dt_s,0.02,ASSUMED,Simulation step,
-04,AiSwing,horizon_s,3600.0,ASSUMED,"Simulated window (job start, checkpoints, a crash/restart)",
+03,cables.py,line 78,,ASSUMED,termination limit for LV ACB/MCCB terminals) [ASSUMED practice].,03-load-sizing/dcsizing/cables.py:78
+03,cables.py,line 90,,ASSUMED,if n > 1 and s < 50: # parallel cables only for large sections (practice) [ASSUMED],03-load-sizing/dcsizing/cables.py:90
+03,generator.py,line 8,,ASSUMED,"""""""Site power derating vs. the manufacturer site rating (40 °C / 1000 m) [ASSUMED slopes;",03-load-sizing/dcsizing/generator.py:8
+03,generator.py,line 19,,ASSUMED,max_loading 90 % of DCC (ISO 8528-1 data-center continuous) is a design-margin policy [ASSUMED].,03-load-sizing/dcsizing/generator.py:19
+03,generator.py,line 21,,ASSUMED,"turbo-charged engine first-step capability, [ASSUMED] 33 %).""""""",03-load-sizing/dcsizing/generator.py:21
+03,generator.py,line 37,,ASSUMED,"ΔU ≈ x'd·s / (1 + x'd·s), s = step/rating). [ASSUMED simplification; vendor transient",03-load-sizing/dcsizing/generator.py:37
+03,generator.py,line 64,,ASSUMED,"volume and the ≥ 10 % reserve [ASSUMED].""""""",03-load-sizing/dcsizing/generator.py:64
+03,load.py,line 17,,ASSUMED,t_peak_c (trim chillers); linear extrapolation above. [ASSUMED model],03-load-sizing/dcsizing/load.py:17
+03,load.py,line 54,,ASSUMED,dist_loss_frac: transformer + LV distribution losses as fraction of (IT + UPS loss + mech) [ASSUMED].,03-load-sizing/dcsizing/load.py:54
+03,scenario.py,line 190,,ASSUMED,"i_feeder <= PHASE1[""mv_feeder_a_capacity""], ""3×1×240 Al 24 kV, in ground ≈ 390 A [ASSUMED]"")",03-load-sizing/dcsizing/scenario.py:190
+03,tables.py,line 5,,ASSUMED,"[ASSUMED] engineering assumption / typical vendor value, NOT a standard table value",03-load-sizing/dcsizing/tables.py:5
+03,tables.py,line 49,,ASSUMED,# touching (simplified to one tray; values beyond 3 circuits extrapolated) [STD 1–3; ASSUMED ≥4],03-load-sizing/dcsizing/tables.py:49
+03,tables.py,line 58,,ASSUMED,"# Project design limits (tighter, ASSUMED): 1 % transformer→MSB, 2 % sub-main, 3 % final circuit.",03-load-sizing/dcsizing/tables.py:58
+03,tables.py,line 68,,ASSUMED,# [ASSUMED] typical values in the order of EU Ecodesign Reg. 548/2014 / 2019/1783 Tier 2 maxima.,03-load-sizing/dcsizing/tables.py:68
+03,tables.py,line 72,,ASSUMED,"# 63 MVA 130/21 kV ONAF oil transformer, P0 / Pk at rated power, kW [ASSUMED]",03-load-sizing/dcsizing/tables.py:72
+03,tables.py,line 76,,ASSUMED,"# Common diesel genset ratings at 400 V, kVA (pf 0.8 → kWe = 0.8 kVA) [ASSUMED, market-typical]",03-load-sizing/dcsizing/tables.py:76
+03,tables.py,line 78,,ASSUMED,"# Site derating (typical manufacturer curves, relative to 40 °C / 1000 m site rating) [ASSUMED]",03-load-sizing/dcsizing/tables.py:78
+03,tables.py,line 81,,ASSUMED,# scaled by volumetric energy ratio HVO/EN 590 ≈ 1.05. [ASSUMED],03-load-sizing/dcsizing/tables.py:81
+03,tables.py,line 83,,ASSUMED,# ISO 8528-5 performance class G3 transient voltage deviation limit (approx. reading) [ASSUMED],03-load-sizing/dcsizing/tables.py:83
+03,tables.py,line 86,,ASSUMED,GEN_MAX_STEP_FRAC = 0.33 # [ASSUMED],03-load-sizing/dcsizing/tables.py:86
+03,tables.py,line 89,,ASSUMED,"# Modular double-conversion UPS efficiency (VFI mode, IEC 62040-3 Annex I test), vs load fraction [ASSUMED]",03-load-sizing/dcsizing/tables.py:89
+03,tables.py,line 92,,ASSUMED,"# LFP capacity vs. cell temperature (relative to 25 °C) [ASSUMED, typical datasheet]",03-load-sizing/dcsizing/tables.py:92
+03,tables.py,line 94,,ASSUMED,"LFP_DEFAULTS = {""eol"": 0.80, # end-of-life capacity (fraction of nameplate) [ASSUMED]",03-load-sizing/dcsizing/tables.py:94
+03,tables.py,line 95,,ASSUMED,"""dod"": 0.90, # usable depth of discharge [ASSUMED]",03-load-sizing/dcsizing/tables.py:95
+03,tables.py,line 96,,ASSUMED,"""eta_dc"": 0.97, # inverter DC→AC efficiency incl. DC path [ASSUMED]",03-load-sizing/dcsizing/tables.py:96
+03,tables.py,line 97,,ASSUMED,"""c_max"": 8.0} # max discharge C-rate (P_dc / E_eol), high-rate UPS LFP [ASSUMED]",03-load-sizing/dcsizing/tables.py:97
+03,tables.py,line 101,,ASSUMED,# IEC 61439-6: rated current at 35 °C 24-h average ambient. Derating above that [ASSUMED vendor-typical],03-load-sizing/dcsizing/tables.py:101
+03,tables.py,line 103,,ASSUMED,"# Cu busway impedance per phase, mOhm/m (R at operating temp, X) [ASSUMED vendor-typical]",03-load-sizing/dcsizing/tables.py:103
+03,tables.py,line 107,,ASSUMED,"# Rated short-time withstand Icw (1 s), kA [ASSUMED vendor-typical]",03-load-sizing/dcsizing/tables.py:107
+03,tables.py,line 113,,ASSUMED,"# [ASSUMED, shaped after public SMHI climate normals for central Sweden; sums to 8760 h]",03-load-sizing/dcsizing/tables.py:113
+03,transformer.py,line 11,,ASSUMED,Limits are design policy [ASSUMED]: ≤ 100 % of AN rating in failure mode (fans give extra,03-load-sizing/dcsizing/transformer.py:11
+03,ups.py,line 13,,ASSUMED,"""""""Number of parallel modules so that the failure-mode load ≤ max_loading × P_r [ASSUMED policy].""""""",03-load-sizing/dcsizing/ups.py:13
+04,campus.Data,sk_max_mva,3000.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,sk_min_mva,1500.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,grid_r_x,0.1,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,hv_sr_mva,63.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,hv_ur_hv,130.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,hv_ur_lv,21.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,hv_uk,0.12,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,hv_pk_kw,250.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,feeder_km,0.6,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,feeder_r20,0.125,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,feeder_x,0.11,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,tx_cable_km,0.15,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,tx_cable_r20,0.32,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,tx_cable_x,0.13,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,bt_sr_mva,2.5,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,bt_ur_hv,20.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,bt_ur_lv,0.42,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,bt_uk,0.06,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,bt_pk_kw,19.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,gen_sr_mva,2.75,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,gen_ur_kv,0.4,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,gen_xd2,0.15,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,gen_xd1,0.22,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,gen_x0,0.08,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,tx_msb_busduct_m,10.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,gen_msb_busduct_m,40.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,msb_sbs_busduct_m,25.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,sbs_z_mohm,(0.05+0.02j),ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,uosb_feeder_m,30.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,uosb_feeder_size,185,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,uosb_feeder_par,2,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,busway_a,800,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,busway_m,60.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,rack_cable_m,8.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,rack_cable_size,16,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,ups_kw,2000.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,ups_ik_pu,2.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,campus.Data,theta_e_c,80.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/campus.py
+04,earthing.EarthingData,un_kv,20.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,c240_uf_km,0.32,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,c95_uf_km,0.22,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,feeders_per_section,6,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,feeder_km,0.6,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,tx_per_section,18,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,tx_cable_km,0.15,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,other_ic_a,3.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,detuning,0.1,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,loss_pct,2.5,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,ir_par_a,10.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,ner_a,500.0,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,re_ohm,0.2,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,earthing.EarthingData,r_factor,0.6,ASSUMED (DB-001 §8.1 / CALC-002),,04-shortcircuit-protection/scprot/earthing.py
+04,campus.py,line 50,,ASSUMED,"sbs_z_mohm: complex = complex(0.05, 0.02) # static switch + MBB/UOSB busbars [ASSUMED]",04-shortcircuit-protection/scprot/campus.py:50
+04,campus.py,line 60,,ASSUMED,"ups_ik_pu: float = 2.0 # inverter current limit, × rated, ≈ 100 ms [ASSUMED]",04-shortcircuit-protection/scprot/campus.py:60
+04,campus.py,line 76,,ASSUMED,r20 = r_op / (1 + 0.00393 * (90 - 20)) * 1.0 # back to 20 °C [ASSUMED operating 90 °C basis],04-shortcircuit-protection/scprot/campus.py:76
+04,campus.py,line 200,,ASSUMED,"busway PE = enclosure, Z_PE ≈ Z_L [ASSUMED]).""""""",04-shortcircuit-protection/scprot/campus.py:200
+04,earthing.py,line 3,,ASSUMED,"earth resistance and reduction factor are [ASSUMED] typical values.""""""",04-shortcircuit-protection/scprot/earthing.py:3
+04,earthing.py,line 26,,ASSUMED,"c240_uf_km: float = 0.32 # 12/20 kV XLPE 1×240 Al, per phase [ASSUMED]",04-shortcircuit-protection/scprot/earthing.py:26
+04,earthing.py,line 27,,ASSUMED,c95_uf_km: float = 0.22 # 12/20 kV XLPE 1×95 Al [ASSUMED],04-shortcircuit-protection/scprot/earthing.py:27
+04,earthing.py,line 32,,ASSUMED,"other_ic_a: float = 3.0 # switchgear, BESS/aux cables, transformer windings [ASSUMED]",04-shortcircuit-protection/scprot/earthing.py:32
+04,earthing.py,line 37,,ASSUMED,re_ohm: float = 0.2 # campus global earthing system resistance [ASSUMED],04-shortcircuit-protection/scprot/earthing.py:37
+04,earthing.py,line 38,,ASSUMED,r_factor: float = 0.6 # reduction factor (cable screens carry part of the return current) [ASSUMED],04-shortcircuit-protection/scprot/earthing.py:38
+04,earthing.py,line 77,,ASSUMED,"the current). Ik1 and r are [ASSUMED] pending DSO data — this case normally governs the earthing design.""""""",04-shortcircuit-protection/scprot/earthing.py:77
+04,iec60909.py,line 229,,ASSUMED,"(classic two-time-constant model). All values per unit of IrG. [ASSUMED vendor-typical]""""""",04-shortcircuit-protection/scprot/iec60909.py:229
+04,protection.py,line 14,,ASSUMED,BREAKER_MV_S = 0.06 # VCB opening + arcing [ASSUMED],04-shortcircuit-protection/scprot/protection.py:14
+04,protection.py,line 183,,ASSUMED,"ith_multiple: float = 100.0 # CT short-time thermal rating, × Ipn for 1 s [ASSUMED]",04-shortcircuit-protection/scprot/protection.py:183
+04,study.py,line 154,,ASSUMED,"add(""Rack PDU inlet"", ""Icc 10 kA [ASSUMED typ.]"", 10, ""S0 normal"", g(""S0max"", ""RACK""),",04-shortcircuit-protection/scprot/study.py:154
+05,Site,grid_limit_mw,40.0,PROJECT,Subscribed import capacity (abonnerad effekt),"DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
+05,Site,it_nameplate_mw,30.0,PROJECT,"IT nameplate, 6 halls × 5 MW","DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
+05,Site,design_peak_mw,37.818,PROJECT,"Campus demand at 100 % IT, +32 °C (dcsizing)","DWU-DC-E-CALC-002 (project 02, dcsizing): design peak 37.8 MW, 42.6 MW incl. UPS recharge"
+05,Site,recharge_mw,4.8,PROJECT,UPS battery recharge allowance 10 % of 48 MW UPS (non-coincident),"DWU-DC-E-CALC-002 (project 02, dcsizing): design peak 37.8 MW, 42.6 MW incl. UPS recharge"
+05,Site,recharge_h,1.5,ASSUMED,"Recharge at full rate after a full discharge, then 1 h taper",
+05,Site,u_mean,0.8,ASSUMED,"Design-year mean IT utilisation (AI-heavy, > DB 75 %)",
+05,Site,u_diurnal,0.06,ASSUMED,Diurnal utilisation amplitude (peak 14–20 h),
+05,Site,u_noise,0.02,ASSUMED,Hourly AR(1) utilisation noise σ,
+05,Site,heatwave_c,32.0,PROJECT,"Extreme design ambient (heat-wave peak, 5 days in July)","DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
+05,Site,seed,2026,ASSUMED,Random seed of all synthetic profiles,
+05,Bess,p_mw,10.0,PROJECT,"PCS power at the 20 kV bay(s), 2 × 5 MW (one per MSG-20 section)","DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
+05,Bess,e_mwh,20.0,PROJECT,Nameplate energy at BoL (2 h); usable = SOC window × nameplate,"DWU-DC-E-DB-001 Design Basis Rev P1 (project 01): 40 MW subscription, 20 kV BESS bay 10 MW / 20 MWh"
+05,Bess,soc_min,0.05,ASSUMED,Usable SOC window lower bound (of nameplate),
+05,Bess,soc_max,0.95,ASSUMED,Usable SOC window upper bound,
+05,Bess,eta_rt,0.88,ASSUMED,AC round-trip efficiency incl. PCS + MV transformer (LFP),
+05,Bess,availability,0.97,ASSUMED,Commercial availability,
+05,Bess,cal_fade,0.01,ASSUMED,"Calendar fade per year (LFP, ~25 °C)",
+05,Bess,cycle_life,6000.0,ASSUMED,Equivalent full cycles to 80 % SOH,
+05,Bess,deg_cost_eur_mwh,15.0,ASSUMED,Throughput degradation cost (DC block cost / cycle life),
+05,Bess,response_ms,150.0,ASSUMED,PCS full-power step response (grid-following); 20–50 ms grid-forming,
+05,Bess,fault_pu,1.2,ASSUMED,PCS fault-current limit (per unit of rated current),
+05,Bess,s_mva,11.0,ASSUMED,PCS apparent power (Q for p.f. ≥ 0.95 at the connection point),
+05,Prices,scenario,2026,PUBLIC,"Price year: '2025', '2026' (Jan–Aug) or 'saturated' (0.5 × 2026, ASSUMED)","Flexnavet wiki, 'Nordic battery revenue trends 2023–2026' — annual means of Svk Mimer reserve prices (2026 = Jan–Aug); secondary source"
+05,Prices,spot_mean,46.23,PUBLIC,"SE3 day-ahead annual mean 2025, EUR/MWh (synthetic hourly shape around it)","Nord Pool, day-ahead prices, yearly aggregate SE3 (2025 = 46.23 EUR/MWh; 2026 YTD = 70.70 EUR/MWh)"
+05,Prices,spot_daily_spread,0.25,ASSUMED,Synthetic diurnal price amplitude (fraction of mean),
+05,Prices,neg_share,0.04,ASSUMED,Share of hours ≤ 0 EUR/MWh (≈ 3.9 % SE3 2025 per worldpowermonitor),
+05,Prices,grid_energy_fee,1.5,PUBLIC,Regional-grid transfer fee ≈ 1.7 öre/kWh (L1 Södra) → ≈ 1.5 EUR/MWh,"Vattenfall Eldistribution, Prisblad regionnät 2026 (Södra Sverige, tariff L1: årseffektavgift 207 SEK/kW, högbelastningsavgift 35 SEK/kW, överföring 1.7 öre/kWh)"
+05,Prices,sek_per_eur,11.0,ASSUMED,Exchange rate SEK/EUR,
+05,Prices,usd_per_eur,1.13,ASSUMED,Exchange rate USD/EUR,
+05,Prices,subscription_sek_kw,242.0,PUBLIC,Årseffektavgift 207 + högbelastning 35 SEK/kW·yr (L1 Södra 2026),"Vattenfall Eldistribution, Prisblad regionnät 2026 (Södra Sverige, tariff L1: årseffektavgift 207 SEK/kW, högbelastningsavgift 35 SEK/kW, överföring 1.7 öre/kWh)"
+05,Prices,realisation,0.85,ASSUMED,"Perfect-foresight LP → real bidding (forecast error, bid granularity, aggregator fee)",
+05,Prices,fcrn_act_share,0.1,ASSUMED,FCR-N mean activation (|ΔP|/reserved) → throughput losses,
+05,Finance,c_energy_eur_kwh,120.0,ASSUMED,Energy-related turnkey cost; with c_power gives 157 €/kWh at 2 h ≈ BNEF Europe 2025 177 USD/kWh,"BNEF Energy Storage System Cost Survey 2025 as reported by Energy-Storage.News 2025-12-16 (turnkey Europe 177 USD/kWh, global 117 USD/kWh)"
+05,Finance,c_power_eur_kw,75.0,ASSUMED,"Power-related turnkey cost (PCS, MV skid)",
+05,Finance,bop_frac,0.2,ASSUMED,"Grid connection, civil, fire protection, owner's costs (fraction of turnkey)",
+05,Finance,bay_eur,300000.0,ASSUMED,Two 20 kV bay fit-outs incl. protection & metering (bays reserved in DB),
+05,Finance,opex_frac,0.02,ASSUMED,"O&M + insurance + EMS/optimiser fee, fraction of CAPEX per year",
+05,Finance,wacc,0.07,ASSUMED,Nominal WACC,
+05,Finance,life_y,15,ASSUMED,Economic life (years),
+05,Finance,price_trend,-0.03,ASSUMED,Annual ancillary-price trend (saturation; SVK-BMO-2030 shows decreasing prices),
+05,Finance,soh_floor,0.8,ASSUMED,Augment energy whenever SOH would fall below this,
+05,Finance,aug_cost_trend,-0.04,ASSUMED,Annual change of cell/augmentation cost,
+05,Finance,it_value_keur_mw,0.0,ASSUMED,"Value of enabled IT capacity, k€/MW-IT·yr (0 = conservative base case)",
+05,AiSwing,p_ai_mw,12.0,ASSUMED,"AI training cluster at the grid (IT × PUE), synchronous job, ≈ 2 halls",
+05,AiSwing,p_base_mw,24.0,ASSUMED,Rest of campus (steady),
+05,AiSwing,duty_low,0.35,ASSUMED,Communication-phase power (pu of AI peak),
+05,AiSwing,period_s,6.0,ASSUMED,Training-iteration period (compute + all-reduce),
+05,AiSwing,ckpt_every_s,900.0,ASSUMED,Checkpoint interval,
+05,AiSwing,ckpt_len_s,45.0,ASSUMED,Checkpoint duration at ~20 % power,
+05,AiSwing,ramp_mw_min,3.0,ASSUMED,Grid-code-style ramp limit at the connection point (10 % of 30 MW per minute),
+05,AiSwing,osc_band_mw,1.0,ASSUMED,Max. residual peak-to-peak swing in 0.1–2 Hz band (≈ 2.5 % of 40 MW; forced-oscillation limit),
+05,AiSwing,rise_s,0.5,ASSUMED,"Facility-level 10–90 % rise time of AI power steps (many GPUs, PSU/UPS DC links)",
+05,AiSwing,dt_s,0.02,ASSUMED,Simulation step,
+05,AiSwing,horizon_s,3600.0,ASSUMED,"Simulated window (job start, checkpoints, a crash/restart)",

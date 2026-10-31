@@ -1,19 +1,19 @@
-"""Collect every assumption of projects 01-04 into one CSV (ASSUMPTIONS_REGISTER_ALL.csv).
+"""Collect every assumption of projects 01 and 03-05 into one CSV (ASSUMPTIONS_REGISTER_ALL.csv).
 
 Sources:
 * 01: the tables in DB-001 Rev P2 §3 (site, assumed), §8 (equipment ratings, Rev P2; sized in CALC-002/003/004)
   and §8.1 (network data, assumed).
-* 02: every code line tagged [ASSUMED] in dcsizing/ (tables.py holds the reference data).
-* 03: the scprot.campus.Data and scprot.earthing.EarthingData defaults, and every [ASSUMED] code line.
-* 04: bessdc.assumptions.register(), exported as results/assumptions_register.csv. Each value has a
+* 03: every code line tagged [ASSUMED] in dcsizing/ (tables.py holds the reference data).
+* 04: the scprot.campus.Data and scprot.earthing.EarthingData defaults, and every [ASSUMED] code line.
+* 05: bessdc.assumptions.register(), exported as results/assumptions_register.csv. Each value has a
   PUBLIC / ASSUMED / PROJECT tag and its source.
 Run from the repository root:  python tools/build_assumptions_register.py
 """
 import csv, dataclasses, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-P = {k: os.path.join(ROOT, v) for k, v in {"01": "01-design-basis-sld", "02": "02-load-sizing",
-                                             "03": "03-shortcircuit-protection", "04": "04-bess"}.items()}
+P = {k: os.path.join(ROOT, v) for k, v in {"01": "01-design-basis-sld", "03": "03-load-sizing",
+                                             "04": "04-shortcircuit-protection", "05": "05-bess"}.items()}
 rows = []
 
 
@@ -36,7 +36,7 @@ for sec in TAG01:
             "", "01-design-basis-sld/docs/01_Design_Basis.md")
 
 
-# ---- 02/03: tagged code lines
+# ---- 03/04: tagged code lines
 def scan(project, pkg_dir):
     for fn in sorted(os.listdir(pkg_dir)):
         if not fn.endswith(".py"):
@@ -48,21 +48,21 @@ def scan(project, pkg_dir):
                     os.path.relpath(os.path.join(pkg_dir, fn), ROOT) + f":{i}")
 
 
-scan("02", os.path.join(P["02"], "dcsizing"))
+scan("03", os.path.join(P["03"], "dcsizing"))
 
-sys.path.insert(0, P["03"])
+sys.path.insert(0, P["04"])
 from scprot import campus, earthing  # noqa: E402
 for cls, grp in ((campus.Data, "campus.Data"), (earthing.EarthingData, "earthing.EarthingData")):
     for f in dataclasses.fields(cls):
         default = f.default if f.default is not dataclasses.MISSING else f.default_factory()
-        add("03", grp, f.name, default, "ASSUMED (DB-001 §8.1 / CALC-002)", "",
-            f"03-shortcircuit-protection/scprot/{grp.split('.')[0]}.py")
-scan("03", os.path.join(P["03"], "scprot"))
+        add("04", grp, f.name, default, "ASSUMED (DB-001 §8.1 / CALC-002)", "",
+            f"04-shortcircuit-protection/scprot/{grp.split('.')[0]}.py")
+scan("04", os.path.join(P["04"], "scprot"))
 
-# ---- 04: structured register
-reg = os.path.join(P["04"], "results", "assumptions_register.csv")
+# ---- 05: structured register
+reg = os.path.join(P["05"], "results", "assumptions_register.csv")
 for r in csv.DictReader(open(reg, encoding="utf-8")):
-    add("04", r["group"], r["name"], r["value"], r["tag"], r["note"], r["source"])
+    add("05", r["group"], r["name"], r["value"], r["tag"], r["note"], r["source"])
 
 out = os.path.join(ROOT, "ASSUMPTIONS_REGISTER_ALL.csv")
 with open(out, "w", newline="", encoding="utf-8") as fh:

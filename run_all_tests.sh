@@ -5,7 +5,7 @@ cd "$(dirname "$0")"
 PY="${PYTHON:-python3}"; case "$PY" in */*) PY="$(cd "$(dirname "$PY")" && pwd)/$(basename "$PY")";; esac
 export PYTHONDONTWRITEBYTECODE=1 MPLBACKEND=Agg
 fail=0; summary=""
-for p in 01-design-basis-sld 02-load-sizing 03-shortcircuit-protection 04-bess; do
+for p in 01-design-basis-sld 03-load-sizing 04-shortcircuit-protection 05-bess; do
   echo "==================== $p"
   out=$(cd "$p" && "$PY" -m pytest -q -p no:cacheprovider 2>&1); rc=$?
   echo "$out" | tail -n 15

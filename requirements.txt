@@ -4,7 +4,7 @@ scipy>=1.11            # 04: linprog (HiGHS), brentq
 pandas>=2.2,<3
 matplotlib>=3.8
 markdown>=3.5          # 01: design-basis HTML/PDF build
-streamlit>=1.40        # 02 and 04 apps (tested with 1.66.1)
+streamlit>=1.40        # 03 and 05 apps (tested with 1.66.1)
 altair>=5.2
 pandapower==3.5.6      # 03: independent IEC 60909 cross-check
 arcflash-calc==0.1.0   # 03: IEEE 1584-2018
